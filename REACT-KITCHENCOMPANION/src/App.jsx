@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import About from './pages/About'
+import Nosotros from './pages/Nosotros'
 import Dashboard from './pages/admin/Dashboard'
 import Users from './pages/admin/users'
 import PrivateRoute from './utils/PrivateRoute'
 import Login from './pages/Login'
 import { ToastContainer } from 'react-toastify'
-import Contact from './pages/Contact'
+import Contactos from './pages/Contactos'
+import Enmirefri from './pages/Enmirefri'
 
 const App = () => {
     return (
@@ -18,10 +19,12 @@ const App = () => {
                 </Route>
                 <Route path='/'>
                     <Route path='login' element={<Login />} />
-                    <Route path='about' element={<About />} />
+                    <Route path='Nosotros' element={<Nosotros/>} />
+                    <Route path='Contactos' element={<Contactos/>} />
+                    <Route path='Enmirefri' element={<Enmirefri/>} />
                     <Route index element={<Home />} />
                 </Route>
-                <Route path='/contact' element={<PrivateRoute><Contact /></PrivateRoute>} />
+                <Route path='/Contactos' element={<PrivateRoute><Contactos /></PrivateRoute>} />
             </Routes>
             <ToastContainer />
         </BrowserRouter>
