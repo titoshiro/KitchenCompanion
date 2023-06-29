@@ -9,6 +9,8 @@ flask-sqlalchemy = "*"
 flask-migrate = "*"
 flask-cors = "*"
 python-dotenv = "*"
+flask-jwt-extended = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
