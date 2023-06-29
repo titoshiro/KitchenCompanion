@@ -1,16 +1,17 @@
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaUser } from 'react-icons/fa';
 import { Navbar } from "../component/navbar";
 import { CardsPrincipal } from '../component/cardsprincipal';
 import fotoComida from "../imagenes/fotoComida.jpg"
 
+
 const Home = () => {
   return (
     <>
-      <Navbar empresa="KITCHENCOMPANION" 
+      <Navbar 
+      empresa="KITCHENCOMPANION" 
       home="HOME" 
       nosotros="NOSOTROS" contacto="CONTACTOS" 
-      login={<FontAwesomeIcon icon={faUser} />}
+      login={<FaUser/>}
       enmirefri="EN MI REFRI" />
       <CardsPrincipal
       imagen={fotoComida}
