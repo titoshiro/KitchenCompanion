@@ -13,7 +13,7 @@ const Jumbotron = ({ titulo, texto, subtexto }) => {
 };
 Jumbotron.propTypes = {
     titulo: PropTypes.string,
-    texto: PropTypes.string,
+    texto: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     subtexto: PropTypes.string,
     boton: PropTypes.string,
   
