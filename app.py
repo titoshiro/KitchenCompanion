@@ -40,6 +40,8 @@ app.register_blueprint(api_users, url_prefix="/api")
 def main():
     return jsonify({ "message": "API REST With Flask"}), 200
 
+with app.app_context():
+    db.create_all()
 
 if __name__ == '__main__':
     app.run()
