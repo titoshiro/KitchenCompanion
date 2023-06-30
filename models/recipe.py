@@ -1,5 +1,5 @@
 from models import db
-from models.relations import relations
+from models.relations import ingredient_user
 
 class Recipe(db.Model):
     __tablename__='recipes'
@@ -7,7 +7,7 @@ class Recipe(db.Model):
     recipe_name = db.Column(db.String(100), nullable=False)
     ingredient_id = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(150), nullable=False)
-    ingredient = db.relationship('Ingredient', cascade="all,delete", secondary=relations.ingredient_user, backref="recipes")
+    ingredient = db.relationship('Ingredient', cascade="all,delete", secondary=ingredient_user, backref="recipes")
 
 def serialize(self):
         return {

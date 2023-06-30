@@ -1,6 +1,6 @@
 from models import db
 
-class recipe_step():
+class Recipe_step():
     __tablename__='recipe_steps'
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(200), nullable=False)
@@ -27,6 +27,6 @@ def serialize(self):
 def serialize_with_recipe(self):
     return {
         "id": self.id,
-        "description": self.description
+        "description": self.description,
         "recipe": self.recipe.name
     }

@@ -1,7 +1,7 @@
 from models import db
 
 class Ingredient(db.Model):
-        __tablename__='ingredients'
+    __tablename__='ingredients'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
     group_id = db.Column(db.Integer, db.ForeignKey('ingredients.id'), nullable=False)
@@ -24,7 +24,7 @@ def serialize(self):
         "name": self.name
     }
 
-def serialize_with group(self):
+def serialize_with_group(self):
     return {
         "id": self.id,
         "name": self.name,
