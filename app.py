@@ -6,8 +6,6 @@ from flask_cors import CORS
 from models import db
 
 from models.food_group import Food_group
-from models.ingredient_recipe import Ingredient
-from models.ingredient_user import Ingredient_user
 from models.ingredient import Ingredient
 from models.recipe_step import Recipe_step
 from models.recipe import Recipe
