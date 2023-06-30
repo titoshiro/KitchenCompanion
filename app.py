@@ -15,6 +15,7 @@ from routes.api_food_group import api as api_food_group
 from routes.api_ingredients import api as api_ingredients
 from routes.api_recipes import api as api_recipes
 from routes.api_users import api as api_users
+from routes.api_recipe_steps import as api_recipe_steps
 
 load_dotenv()
 

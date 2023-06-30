@@ -7,6 +7,6 @@ api = Blueprint('api_ingredients', __name__)
 def list_users():
     
     ingredients = Ingredient.query.all()
-    ingredients = list(map(lambda user: ingredient.serialize(), ingredients))
+    ingredients = list(map(lambda ingredient: ingredient.serialize(), ingredients))
 
     return jsonify(ingredients), 200

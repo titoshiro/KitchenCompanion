@@ -7,6 +7,6 @@ api = Blueprint('api_food_group', __name__)
 def list_food_group():
     
     food_groups = Food_group.query.all()
-    food_groups = list(map(lambda user: food_group.serialize(), food_groups))
+    food_groups = list(map(lambda food_group: food_group.serialize(), food_groups))
 
     return jsonify(food_groups), 200
