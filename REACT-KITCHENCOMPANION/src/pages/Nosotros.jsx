@@ -1,7 +1,7 @@
 
 import { FaUser } from 'react-icons/fa';
 import { Navbar } from "../component/navbar";
-import { Cards } from "../component/cards";
+import Cards  from  "../component/Cards";
 import Jumbotron from '../component/Jumbotron';
 
 const Nosotros = () => {
