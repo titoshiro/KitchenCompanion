@@ -1,10 +1,19 @@
 import { FaUser } from "react-icons/fa";
+import { useState } from "react";
 import Buscador from "../component/Buscador";
 import Jumbotron from "../component/Jumbotron";
 import { Navbar } from "../component/navbar";
 import Cardformulario from "../component/Cardformulario";
+import Cardreceta from "../component/Cardreceta";
+import Cards from "../component/Cards";
 
 const Enmirefri = () => {
+  const [mostrarReceta, setMostrarReceta] = useState(false);
+
+  const receta = () => {
+    setMostrarReceta(!mostrarReceta);
+  };
+  
   return (
     <>
       <Navbar
@@ -43,7 +52,7 @@ const Enmirefri = () => {
       <Buscador />
       <div className="container">
         <div className="row">
-          <div className="col-12 col-md-6 col-lg-3">
+          <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
               imagen="https://picsum.photos/400"
               titulo="Proteinas"
@@ -52,22 +61,19 @@ const Enmirefri = () => {
               ingrediente3="Mariscos"
               ingrediente4="Legumbre"
               ingrediente5="Soya"
-              ingrediente6=" Otro"
+              ingrediente6="Otro"
             />
           </div>
-          <div className="col-12 col-md-6 col-lg-3">
+          <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
               imagen="https://picsum.photos/401"
               titulo="Granos"
               ingrediente="Arroz"
               ingrediente2="Quinoa"
               ingrediente3="Pastas"
-              ingrediente4={undefined}
-              ingrediente5={undefined}
-              ingrediente6={undefined}
             />
           </div>
-          <div className="col-12 col-md-6 col-lg-3">
+          <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
               imagen="https://picsum.photos/402"
               titulo="Vegetales y Frutas"
@@ -76,10 +82,9 @@ const Enmirefri = () => {
               ingrediente3="Limón"
               ingrediente4="Papas"
               ingrediente5="Acelga"
-              ingrediente6={undefined}
             />
           </div>
-          <div className="col-12 col-md-6 col-lg-3">
+          <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
               imagen="https://picsum.photos/403"
               titulo="Aliños y Salsa"
@@ -88,17 +93,97 @@ const Enmirefri = () => {
               ingrediente3="Mostaza"
               ingrediente4="Sal"
               ingrediente5="Azucar"
-              ingrediente6={undefined}
             />
           </div>
         </div>
       </div>
       <button
+        onClick={receta}
         type="button"
         className="btn btn-warning d-grid gap-2 col-6 mx-auto m-3"
       >
-        Crea mi lista
+        Mi Receta
       </button>
+      {mostrarReceta && (
+        <>
+          <Cardreceta
+            foto="https://picsum.photos/409"
+            titulo="Receta del dia"
+            paso1="paso 1 "
+            texto1="lorendsfsdfsdfsdfsdfsdfsdfsdfsdsfkjashjks"
+            paso2="paso 2"
+            texto2="lorendsfsdfsdfsdfsdfsdfsdfsdfsdsfkjashjks"
+            paso3="paso 3"
+            texto3="lorendsfsdfsdfsdfsdfsdfsdfsdfsdsfkjashjks"
+            paso4="paso 4"
+            texto4="lorendsfsdfsdfsdfsdfsdfsdfsdfsdsfkjashjks"
+          />
+            <h1 className="text-center">Tu Semana</h1>
+          <div className="container">
+  <div className="row">
+    <div className="col-12 col-md-6 col-lg-2 mx-auto">
+      
+      <Cards
+        imagen="https://picsum.photos/409"
+        titulo="Lunes"
+        texto=""
+        boton="Ver"
+      />
+    </div>
+    <div className="col-12 col-md-6 col-lg-2 mx-auto">
+      <Cards
+        imagen="https://picsum.photos/409"
+        titulo="Martes"
+        texto=""
+        boton="Ver"
+      />
+    
+    </div>
+    <div className="col-12 col-md-6 col-lg-2 mx-auto">
+      <Cards
+        imagen="https://picsum.photos/409"
+        titulo="Miércoles"
+        texto=""
+        boton="Ver"
+      />
+    </div>
+    <div className="col-12 col-md-6 col-lg-2 mx-auto">
+      <Cards
+        imagen="https://picsum.photos/409"
+        titulo="Jueves"
+        texto=""
+        boton="Ver"
+      />
+    </div>
+    <div className="col-12 col-md-6 col-lg-2 mx-auto">
+      <Cards
+        imagen="https://picsum.photos/409"
+        titulo="Viernes"
+        texto=""
+        boton="Ver"
+      />
+    </div>
+    <div className="col-12 col-md-6 col-lg-2 mx-auto">
+      <Cards
+        imagen="https://picsum.photos/409"
+        titulo="Sábado"
+        texto=""
+        boton="Ver"
+      />
+    </div>
+    <div className="col-12 col-md-6 col-lg-2 mx-auto">
+      <Cards
+        imagen="https://picsum.photos/409"
+        titulo="Domingo"
+        texto=""
+        boton="Ver"
+      />
+    </div>
+  </div>
+</div>
+
+        </>
+      )}
     </>
   );
 };

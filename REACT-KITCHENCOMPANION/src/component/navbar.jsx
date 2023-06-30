@@ -65,12 +65,12 @@ const Navbar = ({ empresa, home, nosotros, contacto, login, enmirefri }) => {
 };
 
 Navbar.propTypes = {
-  empresa: PropTypes.string.isRequired,
-  home: PropTypes.string.isRequired,
-  nosotros: PropTypes.string.isRequired,
-  contacto: PropTypes.string.isRequired,
-  login: PropTypes.string.isRequired,
-  enmirefri: PropTypes.string.isRequired,
+  empresa: PropTypes.string,
+  home: PropTypes.string,
+  nosotros: PropTypes.string,
+  contacto: PropTypes.string,
+  login: PropTypes.object,
+  enmirefri: PropTypes.string,
 };
 
 export { Navbar };
