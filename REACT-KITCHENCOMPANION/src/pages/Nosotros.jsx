@@ -1,5 +1,4 @@
 
-import { FaUser } from 'react-icons/fa';
 import { Navbar } from "../component/navbar";
 import Cards  from  "../component/Cards";
 import Jumbotron from '../component/Jumbotron';
@@ -7,13 +6,14 @@ import Jumbotron from '../component/Jumbotron';
 const Nosotros = () => {
   return (
     <>
-      <Navbar
+    <Navbar
         empresa="KITCHENCOMPANION"
         home="HOME"
         nosotros="NOSOTROS"
         contacto="CONTACTOS"
-        login={<FaUser/>}
+        login="INICIAR SESIÓN"
         enmirefri="EN MI REFRI"
+        registrarse="REGISTRATE"
       />
       <Jumbotron
         titulo="¿KITCHENCOMPANION?"
@@ -32,6 +32,7 @@ const Nosotros = () => {
               titulo="¿ No tienes tiempo o estas lleno de stress?"
               texto="Presiona en mi refri"
               boton="Mi Refri"
+              direccion="Enmirefri"
             />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
