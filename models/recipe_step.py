@@ -3,7 +3,7 @@ from models import db
 class recipe_step():
     __tablename__='recipe_steps'
     id = db.Column(db.Integer, primary_key=True)
-    description = db.Column(db.String(200))
+    description = db.Column(db.String(200), nullable=False)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), nullable=False)
     recipe = db.relationship("Recipe", back_populates="recipes", lazy=True)
 
