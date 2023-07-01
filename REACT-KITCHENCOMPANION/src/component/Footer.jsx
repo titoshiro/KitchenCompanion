@@ -1,6 +1,14 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const Footer = ({ facebook, twitter, google, instagram, linkedin, github }) => {
+const Footer = ({
+  facebook,
+  twitter,
+  google,
+  instagram,
+  linkedin,
+  github,
+}) => {
   return (
     <footer
       className="text-center text-lg-start text-white"
@@ -25,7 +33,9 @@ const Footer = ({ facebook, twitter, google, instagram, linkedin, github }) => {
           <p className="d-flex justify-content-center align-items-center">
             <span className="me-3">Register for free</span>
             <button type="button" className="btn btn-outline-light btn-rounded">
-              Sign up!
+              <Link to="/register" className="text-white">
+                sign up!
+              </Link>
             </button>
           </p>
         </section>
@@ -84,6 +94,7 @@ const Footer = ({ facebook, twitter, google, instagram, linkedin, github }) => {
     </footer>
   );
 };
+
 Footer.propTypes = {
   facebook: PropTypes.string,
   instagram: PropTypes.string,
