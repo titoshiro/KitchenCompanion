@@ -10,3 +10,15 @@ def list_users():
     recipe_steps = list(map(lambda recipe_step: recipe_step.serialize(), recipe_steps))
 
     return jsonify(users), 200
+
+@api.route('/recipe_steps', methods=['POST'])
+def add_food_group():
+    return jsonify({ "message": "POST recipe steps"}), 200
+
+@api.route('/recipe_steps', methods=['PUT'])
+def update_food_group():
+    return jsonify({ "message": "PUT recipe steps"}), 200
+
+@api.route('/recipe_steps', methods=['DELETE'])
+def remove_food_group():
+    return jsonify({ "message": "Delete recipe steps"}), 200
