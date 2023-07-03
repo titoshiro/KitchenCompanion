@@ -5,9 +5,9 @@ from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from models import db
 
-from models.food_group import Food_group
+from models.food_group import Food_Group
 from models.ingredient import Ingredient
-from models.recipe_step import Recipe_step
+from models.recipe_step import Recipe_Step
 from models.recipe import Recipe
 from models.user import User
 

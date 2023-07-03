@@ -1,32 +1,33 @@
 from models import db
 
-class Recipe_step():
+class Recipe_Step():
     __tablename__='recipe_steps'
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(200), nullable=False)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), nullable=False)
-    recipe = db.relationship("Recipe", back_populates="recipe_steps", lazy=True)
+    image_url = db.Column(db.String(100), nullable=False)
 
-def save(self):
-    db.session.add(self)
-    db.session.commit()
-    
-def update(self):
-    db.session.commit()
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
         
-def delete(self):
-    db.session.delete(self)
-    db.session.commit()
+    def update(self):
+        db.session.commit()
+            
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
-def serialize(self):
-    return {
-        "id": self.id,
-        "description": self.description
-    }
+    def serialize(self):
+        return {
+            "id": self.id,
+            "description": self.description
+        }
 
-def serialize_with_recipe(self):
-    return {
-        "id": self.id,
-        "description": self.description,
-        "recipe": self.recipe.name
-    }
+    def serialize_with_recipe(self):
+        return {
+            "id": self.id,
+            "description": self.description,
+            "recipe": self.recipe.name
+        }
