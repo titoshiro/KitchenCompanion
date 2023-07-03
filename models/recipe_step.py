@@ -1,6 +1,6 @@
 from models import db
 
-class Recipe_Step():
+class Recipe_Step(db.Model):
     __tablename__='recipe_steps'
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(200), nullable=False)

@@ -7,7 +7,7 @@ class User(db.Model):
     username = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(50))
-    #ingredient = db.relationship("Ingredient", secondary="ingredient_user", back_populates="users")
+    ingredients = db.relationship("Ingredient", secondary="ingredient_user", back_populates="users")
 
     def save(self):
         db.session.add(self)

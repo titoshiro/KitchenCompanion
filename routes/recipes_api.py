@@ -6,8 +6,8 @@ api = Blueprint('recipes_api', __name__)
 @api.route('/recipes', methods=['GET'])
 def list_recipes():
     
-    users = Recipe.query.all()
-    users = list(map(lambda recipe: recipe.serialize(), recipes))
+    recipes = Recipe.query.all()
+    recipes = list(map(lambda recipe: recipe.serialize(), recipes))
 
     return jsonify(recipes), 200
 
