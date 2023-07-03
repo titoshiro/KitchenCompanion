@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from models.food_group import Food_group
 
-api = Blueprint('api_food_group', __name__)
+api = Blueprint('food_group_api', __name__)
 
 @api.route('/food_groups', methods=['GET'])
 def list_food_group():

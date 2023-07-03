@@ -7,6 +7,7 @@ class Recipe(db.Model):
     recipe_name = db.Column(db.String(100), nullable=False)
     ingredient_id = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(150), nullable=False)
+    image_url = db.Column(db.String(100), nullable=False)
     ingredient = db.relationship('Ingredient', cascade="all,delete", secondary=ingredient_user, backref="recipes")
 
 def serialize(self):

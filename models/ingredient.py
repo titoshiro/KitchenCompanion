@@ -5,7 +5,7 @@ class Ingredient(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
     group_id = db.Column(db.Integer, db.ForeignKey('ingredients.id'), nullable=False)
-    food_group = db.relationship("Food_Group", back_populates="recipes", lazy=True)
+    food_group = db.relationship("Food_Group", back_populates="ingredient", lazy=True)
 
 def save(self):
     db.session.add(self)

@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from models.ingredient import Ingredient
 
-api = Blueprint('api_ingredients', __name__)
+api = Blueprint('ingredients_api', __name__)
 
 @api.route('/ingredients', methods=['GET'])
 def list_users():

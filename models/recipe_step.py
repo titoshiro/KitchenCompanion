@@ -5,7 +5,7 @@ class Recipe_step():
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(200), nullable=False)
     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.id'), nullable=False)
-    recipe = db.relationship("Recipe", back_populates="recipes", lazy=True)
+    recipe = db.relationship("Recipe", back_populates="recipe_steps", lazy=True)
 
 def save(self):
     db.session.add(self)
