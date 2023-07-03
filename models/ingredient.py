@@ -6,7 +6,7 @@ class Ingredient(db.Model):
     name = db.Column(db.String(50))
     food_groups_id = db.Column(db.Integer, db.ForeignKey('food_groups.id'), nullable=False)
     users = db.relationship("User", secondary="ingredient_user", back_populates="ingredients")
-    #recipes = db.relationship("Recipes", secondary="ingredient_recipe", back_populates="ingredients")
+    recipes = db.relationship("Recipe", secondary="ingredient_recipe", back_populates="ingredients")
 
     def save(self):
         db.session.add(self)
