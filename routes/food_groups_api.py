@@ -13,6 +13,11 @@ def list_food_group():
 
 @api.route('/food_groups', methods=['POST'])
 def add_food_group():
+
+    food_group = Food_Group()
+    food_group.name = data['name']
+    food_group.description = data['description']
+    food_group.save()
     return jsonify({ "message": "POST Food group"}), 200
 
 @api.route('/food_groups', methods=['PUT'])
