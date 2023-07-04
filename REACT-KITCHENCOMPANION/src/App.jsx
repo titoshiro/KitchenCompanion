@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Nosotros from './pages/Nosotros'
+import Dashboard from './pages/admin/Dashboard'
+import Users from './pages/admin/users'
+import PrivateRoute from './utils/PrivateRoute'
+import Login from './pages/Login'
+import { ToastContainer } from 'react-toastify'
+import Contactos from './pages/Contactos'
+import Enmirefri from './pages/Enmirefri'
+=======
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Nosotros from './pages/Nosotros';
@@ -10,6 +22,7 @@ import Contactos from './pages/Contactos';
 import Enmirefri from './pages/Enmirefri';
 import { AppProvider } from './store/AppContext';
 import Register from './pages/Register';
+>>>>>>> 730c03bf60524c97dc83dafebd1e765d026c1b97
 
 const App = () => {
   return (
