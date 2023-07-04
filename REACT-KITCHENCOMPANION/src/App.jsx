@@ -9,6 +9,7 @@ import Login from './pages/Login'
 import { ToastContainer } from 'react-toastify'
 import Contactos from './pages/Contactos'
 import Enmirefri from './pages/Enmirefri'
+import BannerImage from "./recursos/homebackground.png" 
 =======
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
