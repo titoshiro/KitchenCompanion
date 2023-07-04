@@ -7,13 +7,28 @@ const Register = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
+
   const handleRegister = (e) => {
     e.preventDefault();
-    // lógica de registro
-    //  crear una cuenta de usuario
 
-    // Después de un registro redirigir al usuario a la página de inicio de sesión
-    navigate("/login");
+
+    fetch("http://127.0.0.1:5000/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, password }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          navigate("/login");
+        } else {
+          console.error("Error:", response.status);
+        }
+      })
+      .catch((error) => {
+        console.error("Error",error);
+      });
   };
 
   return (
@@ -34,7 +49,7 @@ const Register = () => {
             Name
           </label>
           <input
-          value={name}
+            value={name}
             type="name"
             onChange={(e) => setName(e.target.value)}
             className="form-control"
@@ -42,7 +57,7 @@ const Register = () => {
             aria-describedby="emailHelp"
           />
           <div id="emailHelp" className="form-text">
-           blablabla
+            name
           </div>
         </div>
         <div className="mb-3">
@@ -50,7 +65,7 @@ const Register = () => {
             Password
           </label>
           <input
-          value={password}
+            value={password}
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             className="form-control"

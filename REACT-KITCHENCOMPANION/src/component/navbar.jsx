@@ -18,11 +18,10 @@ const Navbar = ({
             {empresa}
           </a>
           <button
-            className="navbar-toggler bg-white"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
@@ -75,10 +74,7 @@ const Navbar = ({
           </div>
         </div>
       </nav>
-      <div className="container-fluid mt-5">
-        {/* Agrega un margen superior de 5 (puedes ajustar este valor según sea necesario) */}
-        {/* Aquí va el contenido principal de tu página */}
-      </div>
+      <div className="container-fluid mt-5">{/* {espacio extra} */}</div>
     </div>
   );
 };
