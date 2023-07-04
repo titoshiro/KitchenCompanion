@@ -20,11 +20,11 @@ const CardsPrincipal = ({imagen,titulo,texto,subtexto,boton}) => {
 }
 
 CardsPrincipal.propTypes = {
-  imagen: PropTypes.string.isRequired,
-  titulo: PropTypes.string.isRequired,
-  texto: PropTypes.string.isRequired,
-  subtexto: PropTypes.string.isRequired,
-  boton: PropTypes.string.isRequired,
+  imagen: PropTypes.string,
+  titulo: PropTypes.string,
+  texto: PropTypes.string,
+  subtexto: PropTypes.string,
+  boton: PropTypes.string,
 };
 
 
