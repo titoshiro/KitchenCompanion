@@ -8,7 +8,7 @@ class User(db.Model):
     username = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(50))
-    allergies = db.relationship("Ingredient", secondary="ingredient_user", back_populates="users")
+    allergies = db.relationship("Ingredient", secondary="ingredient_user")
 
     def save(self):
         db.session.add(self)
@@ -27,7 +27,6 @@ class User(db.Model):
             "username": self.username,
             "email": self.email,
         }
-
 
     def serialize_with_ingredient(self):
         return {

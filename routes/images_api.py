@@ -1,11 +1,11 @@
 import cloudinary
 import cloudinary.uploader
 from flask import Blueprint, jsonify, request
-from models.ingredient import Ingredient
+from models.image import Image
 
 api = Blueprint('image_api', __name__)
 
-@app.route('/images', methods=['GET'])
+@api.route('/images', methods=['GET'])
 def list_gallery_images():
     
     images = Image.query.filter_by(active=True).all()
@@ -13,7 +13,7 @@ def list_gallery_images():
     
     return jsonify(images), 200
 
-@app.route('/api/images/upload', methods=['POST'])
+@api.route('/api/images/upload', methods=['POST'])
 def upload_image():
     
     title = request.form['title']
@@ -40,7 +40,7 @@ def upload_image():
     
     return jsonify({ "image": imgGallery.serialize(), "message": "Image uploaded successfully"}), 201
 
-@app.route('/api/gallery/image/<int:id>/delete', methods=['DELETE'])
+@api.route('/api/gallery/image/<int:id>/delete', methods=['DELETE'])
 def delete_image(id):
     image = Image.query.get(id)
     

@@ -8,7 +8,9 @@ class Recipe(db.Model):
     ingredient_id = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(150), nullable=False)
     image_ = db.Column(db.Integer, nullable=False)
-    ingredients = db.relationship("Ingredient", secondary="ingredient_recipe", back_populates="recipes")
+    recipe_steps_id = db.Column(db.Integer, db.ForeignKey("recipe_steps.id"))
+    recipe_steps = db.relationship("Recipe_Step", backref="recipe_steps")
+    ingredients = db.relationship("Ingredient", secondary="ingredient_recipe")
 
     def serialize(self):
             return {
@@ -20,7 +22,7 @@ class Recipe(db.Model):
             return {
                 "id": self.id,
                 "name": self.name,
-                "description": self.description
+                "description": self.description,
                 "image_file": self.image.image_file
             }
             

@@ -5,7 +5,6 @@ class Image(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50), nullable=False)
     image_file = db.Column(db.String(120), nullable=False)
-    public_id = db.Column(db.String(50), nullable=False)
     active = db.Column(db.Boolean(), default=True)
     
     def serialize(self):

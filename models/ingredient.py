@@ -1,4 +1,5 @@
 from models import db
+from models.image import Image
 
 class Ingredient(db.Model):
     __tablename__='ingredients'
@@ -8,8 +9,9 @@ class Ingredient(db.Model):
     vegan_tag = db.Column(db.Boolean, nullable=False)
     vegetarian_tag = db.Column(db.Boolean, nullable=False)
     image_ = db.Column(db.Integer, nullable=False)
-    users = db.relationship("User", secondary="ingredient_user", back_populates="ingredients")
-    recipes = db.relationship("Recipe", secondary="ingredient_recipe", back_populates="ingredients")
+    users = db.relationship("User", secondary="ingredient_user")
+    recipes = db.relationship("Recipe", secondary="ingredient_recipe")
+
 
     def save(self):
         db.session.add(self)
@@ -34,4 +36,11 @@ class Ingredient(db.Model):
             "id": self.id,
             "name": self.name,
             "food_group": self.group.name
+        }
+    def serialize_all(self):
+        return{
+            "id": self.id,
+            "name": self.name,
+            "food_group": self.group.name,
+            "image_file": self.image.image_file
         }

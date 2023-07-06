@@ -21,6 +21,7 @@ from routes.ingredients_api import api as api_ingredients
 from routes.recipes_api import api as api_recipes
 from routes.users_api import api as api_users
 from routes.recipe_steps_api import api as api_recipe_steps
+from routes.images_api import api as api_images
 
 load_dotenv()
 
@@ -41,6 +42,7 @@ app.register_blueprint(api_ingredients, url_prefix="/api")
 app.register_blueprint(api_recipes, url_prefix="/api")
 app.register_blueprint(api_users, url_prefix="/api")
 app.register_blueprint(api_recipe_steps, url_prefix="/api")
+app.register_blueprint(api_images, url_prefix="/api")
 
 cloudinary.config( 
   cloud_name = os.getenv("CLOUDINARY_CLOUD_NAME"), 
