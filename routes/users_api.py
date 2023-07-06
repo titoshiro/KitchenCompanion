@@ -23,12 +23,30 @@ def add_user():
 
 @api.route('/users', methods=['PUT'])
 def update_user():
-
+    
 
 
 
     return jsonify({ "message": "PUT user"}), 200
 
+@api.route('/add/alergies', methods=['PUT'])
+def add_allergy():
+    ingredient_id = request.json.get('ingredient_id')
+    users_id = request.jsonm.get('users_id')
+
+    user = User.query.get('users_id')
+
+    ingredient = Ingredient.query.get(ingredient)
+    ingredient: user.allergies.append(ingredient)
+@api.route('/remove/alergies', methods=['PUT'])
+def remove_allergy():
+    ingredient_id = request.json.get('ingredient_id')
+    users_id = request.jsonm.get('users_id')
+
+    user = User.query.get('users_id')
+
+    ingredient = Ingredient.query.get(ingredient)
+    ingredient: user.allergies.pop(ingredient)
 @api.route('/users', methods=['DELETE'])
 def remove_user():
 

@@ -7,7 +7,7 @@ class Recipe(db.Model):
     recipe_name = db.Column(db.String(100), nullable=False)
     ingredient_id = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(150), nullable=False)
-    image_url = db.Column(db.String(100), nullable=False)
+    image_ = db.Column(db.Integer, nullable=False)
     ingredients = db.relationship("Ingredient", secondary="ingredient_recipe", back_populates="recipes")
 
     def serialize(self):
@@ -15,6 +15,13 @@ class Recipe(db.Model):
                 "id": self.id,
                 "name": self.name,
                 "description": self.description
+            }
+    def serialize_with_image(self):
+            return {
+                "id": self.id,
+                "name": self.name,
+                "description": self.description
+                "image_file": self.image.image_file
             }
             
     def save(self):
