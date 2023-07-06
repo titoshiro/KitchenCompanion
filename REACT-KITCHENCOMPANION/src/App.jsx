@@ -10,7 +10,7 @@ import Login from './pages/Login';
 import Contactos from './pages/Contactos';
 import Enmirefri from './pages/Enmirefri';
 import Register from './pages/Register';
-import BannerImage from "./recursos/homebackground.png" 
+
 
 const App = () => {
   return (
