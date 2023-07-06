@@ -1,5 +1,6 @@
 from models import db
 from models.relations import ingredient_user
+from models.ingredient import Ingredient
 
 class User(db.Model):
     __tablename__='users'
@@ -33,5 +34,8 @@ class User(db.Model):
             "id": self.id,
             "username": self.username,
             "email": self.email,
-            "ingredient": self.ingredient.name
+            "ingredient": self.get_allergies()
         }
+
+    def get_allergies(self):
+        return list(map(lambda ingredient: ingredient.serialize(), self.ingredients))

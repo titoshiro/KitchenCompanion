@@ -13,7 +13,13 @@ def list_users():
 
 @api.route('/ingredients', methods=['POST'])
 def add_food_group():
-    return jsonify({ "message": "POST ingredient"}), 200
+
+    ingredient = Ingredient()
+    ingredient. name = data['recipe_name']
+    ingredient.ingredient_id = data['food_group_id']
+    ingredient.save()
+    return jsonify({ "message": "POST user"}), 200
+
 
 @api.route('/ingredients', methods=['PUT'])
 def update_food_group():

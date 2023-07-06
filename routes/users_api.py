@@ -12,13 +12,26 @@ def list_users():
     return jsonify(users), 200
 
 @api.route('/users', methods=['POST'])
-def add_food_group():
+def add_user():
+    data = request.get_json()
+    user = User()
+    user.username = data['username']
+    user.email = data['email']
+    user.password = data['password']
+    user.save()
     return jsonify({ "message": "POST user"}), 200
 
 @api.route('/users', methods=['PUT'])
-def update_food_group():
+def update_user():
+
+
+
+
     return jsonify({ "message": "PUT user"}), 200
 
 @api.route('/users', methods=['DELETE'])
-def remove_food_group():
+def remove_user():
+
+
+
     return jsonify({ "message": "Delete user"}), 200

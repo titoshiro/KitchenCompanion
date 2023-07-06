@@ -40,6 +40,11 @@ app.register_blueprint(api_recipes, url_prefix="/api")
 app.register_blueprint(api_users, url_prefix="/api")
 app.register_blueprint(api_recipe_steps, url_prefix="/api")
 
+cloudinary.config( 
+  cloud_name = os.getenv("CLOUDINARY_CLOUD_NAME"), 
+  api_key = os.getenv("CLOUDINARY_API_KEY"), 
+  api_secret =  os.getenv("CLOUDINARY_API_SECRET")
+)
 
 @app.route('/')
 def main():
