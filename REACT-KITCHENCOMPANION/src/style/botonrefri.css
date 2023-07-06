@@ -1,0 +1,45 @@
+
+.ov-btn-slide-left {
+    font-family: "Rubik", sans-serif;
+    background: #f9f9c3; /* color de fondo */
+    color: #060606; /* color de fuente */
+    border: 3px solid #403e3e; /* tamaño y color de borde */
+    padding: 16px 20px;
+    border-radius: 10px; /* redondear bordes */
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .ov-btn-slide-left:hover {
+    color: #7c7c7b; /* color de fuente hover */
+  }
+  .ov-btn-slide-left::after {
+    content: "";
+    background: #f8f68c; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+  .ov-btn-slide-left:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+
+  .container-boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   height: 110px;
+  }
