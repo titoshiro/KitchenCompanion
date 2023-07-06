@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "../style/footer.css"
 
 const Footer = ({
   facebook,
@@ -11,8 +12,7 @@ const Footer = ({
 }) => {
   return (
     <footer
-      className="text-center text-lg-start text-white"
-      style={{ backgroundColor: "#3e4551" }}
+      className="footer text-center text-lg-start "
     >
       <div className="container p-4 pb-0">
         <section>
@@ -20,10 +20,7 @@ const Footer = ({
             <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
               <h5 className="text-uppercase">KITCHENCOMPANION</h5>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestiae modi cum ipsam ad, illo possimus laborum ut reiciendis
-                obcaecati. Ducimus, quas. Corrupti, pariatur eaque? Reiciendis
-                assumenda iusto sapiente inventore animi?
+                Todo hecho con amor y amsiedad.
               </p>
             </div>
           </div>
@@ -31,10 +28,10 @@ const Footer = ({
         <hr className="mb-4" />
         <section>
           <p className="d-flex justify-content-center align-items-center">
-            <span className="me-3">Register for free</span>
+            <span className="me-3">Registrate</span>
             <button type="button" className="btn btn-outline-light btn-rounded">
-              <Link to="/register" className="text-white">
-                sign up!
+              <Link to="/register" className="btn btn-outline-black">
+                Aqui!
               </Link>
             </button>
           </p>
@@ -42,42 +39,42 @@ const Footer = ({
         <hr className="mb-4" />
         <section className="mb-4 text-center">
           <a
-            className="btn btn-outline-light btn-floating m-1"
+            className="btn btn-outline-black btn-floating m-1"
             href="#!"
             role="button"
           >
             <i className="fab fa-facebook-f">{facebook}</i>
           </a>
           <a
-            className="btn btn-outline-light btn-floating m-1"
+            className="btn btn-outline-black btn-floating m-1"
             href="#!"
             role="button"
           >
             <i className="fab fa-twitter">{twitter}</i>
           </a>
           <a
-            className="btn btn-outline-light btn-floating m-1"
+            className="btn btn-outline-black btn-floating m-1"
             href="#!"
             role="button"
           >
             <i className="fab fa-google">{google}</i>
           </a>
           <a
-            className="btn btn-outline-light btn-floating m-1"
+            className="btn btn-outline-black btn-floating m-1"
             href="#!"
             role="button"
           >
             <i className="fab fa-instagram">{instagram}</i>
           </a>
           <a
-            className="btn btn-outline-light btn-floating m-1"
+            className="btn btn-outline-black btn-floating m-1"
             href="#!"
             role="button"
           >
             <i className="fab fa-linkedin-in">{linkedin}</i>
           </a>
           <a
-            className="btn btn-outline-light btn-floating m-1"
+            className="btn btn-outline-black btn-floating m-1"
             href="#!"
             role="button"
           >
