@@ -27,8 +27,7 @@ class Ingredient(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "name": self.name,
-            
+            "name": self.name
         }
 
     def serialize_with_group(self):
@@ -42,5 +41,8 @@ class Ingredient(db.Model):
             "id": self.id,
             "name": self.name,
             "food_group": self.group.name,
+            "vegan_tag": self.vegan_tag,
+            "vegetarian_tag": self.vegetarian_tag,
             "image_file": self.image.image_file
+
         }

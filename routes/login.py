@@ -29,5 +29,27 @@ def login():
 
 @api.route('/register', methods=['POST'])
 def register():
-    # code to register users
-    pass
+    
+    username = request.json.get('username')
+    password = request.json.get('password')
+    email = request.json.get('email')
+    
+    userFound = User.query.filter_by(username=username).first()
+    
+    if not userFound:
+
+        if email != userFound.email:
+            return jsonify({ "message": "email already in use"}), 409
+        
+        userFound.email = email
+        userFound.username = username
+        userFound.password = password
+
+        userFound.save()
+        
+    data = {
+        "user": userFound.serialize()
+    }
+
+    return jsonify(data), 200
+    

@@ -74,7 +74,7 @@ const Enmirefri = () => {
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
               imagen="https://picsum.photos/401"
-              titulo="Granos y legunbres"
+              titulo="Granos y legumbres"
               ingrediente="Arroz"
               ingrediente2="Pastas"
               ingrediente3="Lentejas"
