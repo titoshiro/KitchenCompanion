@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Cardformulario = ({ imagen,titulo, ingrediente, ingrediente2, ingrediente3, ingrediente4, ingrediente5, ingrediente6 }) => {
+const Cardformulario = ({ imagen,titulo, ingrediente, ingrediente2, ingrediente3, ingrediente4, ingrediente5, ingrediente6,ingrediente7,ingrediente8 }) => {
   return (
     <>
       <div className="card-deck ">
@@ -47,7 +47,16 @@ const Cardformulario = ({ imagen,titulo, ingrediente, ingrediente2, ingrediente3
               </label>
             </div>
           )}
-          {ingrediente6 !== undefined && (
+         
+         {ingrediente7 !== undefined && (
+            <div className="form-check">
+              <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label className="form-check-label" htmlFor="flexCheckDefault">
+                {ingrediente6}
+              </label>
+            </div>
+          )}
+           {ingrediente8 !== undefined && (
             <div className="form-check">
               <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
               <label className="form-check-label" htmlFor="flexCheckDefault">
@@ -70,6 +79,8 @@ Cardformulario.propTypes = {
   ingrediente4: PropTypes.string,
   ingrediente5: PropTypes.string,
   ingrediente6: PropTypes.string,
+  ingrediente7: PropTypes.string,
+  ingrediente8: PropTypes.string,
 };
 
 export default Cardformulario;

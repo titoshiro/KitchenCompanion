@@ -64,42 +64,47 @@ const Enmirefri = () => {
               imagen="https://picsum.photos/400"
               titulo="Proteínas"
               ingrediente="Carne"
-              ingrediente2="Pescado"
-              ingrediente3="Mariscos"
-              ingrediente4="Legumbre"
-              ingrediente5="Soya"
-              ingrediente6="Otro"
+              ingrediente2="Pollo"
+              ingrediente3="Pescado"
+              ingrediente4="Mariscos"
+              ingrediente6="Tofu"
+            
             />
           </div>
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
               imagen="https://picsum.photos/401"
-              titulo="Granos"
+              titulo="Granos y legunbres"
               ingrediente="Arroz"
-              ingrediente2="Quinoa"
-              ingrediente3="Pastas"
+              ingrediente2="Pastas"
+              ingrediente3="Lentejas"
+              
             />
           </div>
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
               imagen="https://picsum.photos/402"
-              titulo="Vegetales y Frutas"
+              titulo="Vegetales"
               ingrediente="Tomate"
-              ingrediente2="Lechuga"
-              ingrediente3="Limón"
+              ingrediente2="Choclo"
+              ingrediente3="Cebolla"
               ingrediente4="Papas"
-              ingrediente5="Acelga"
+              ingrediente5="Zapallo"
+              ingrediente6="Palta"
+              ingrediente7="zahanoria"
+              ingrediente8= "champiñion"
+              
             />
           </div>
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
-              imagen="https://picsum.photos/403"
-              titulo="Aliños y Salsas"
-              ingrediente="Ketchup"
-              ingrediente2="Mayo"
-              ingrediente3="Mostaza"
-              ingrediente4="Sal"
-              ingrediente5="Azúcar"
+              imagen="https://picsum.photos/402"
+              titulo="Lacteos y otros"
+              ingrediente2="Queso"
+              ingrediente3="Huevo"
+              ingrediente4="Harina de maiz"
+              ingrediente5="Leche"
+              
             />
           </div>
         </div>
