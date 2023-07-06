@@ -7,14 +7,23 @@ class Recipe(db.Model):
     recipe_name = db.Column(db.String(100), nullable=False)
     ingredient_id = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(150), nullable=False)
-    image_url = db.Column(db.String(100), nullable=False)
-    ingredients = db.relationship("Ingredient", secondary="ingredient_recipe", back_populates="recipes")
+    image_ = db.Column(db.Integer, nullable=False)
+    recipe_steps_id = db.Column(db.Integer, db.ForeignKey("recipe_steps.id"))
+    recipe_steps = db.relationship("Recipe_Step", backref="recipe_steps")
+    ingredients = db.relationship("Ingredient", secondary="ingredient_recipe")
 
     def serialize(self):
             return {
                 "id": self.id,
                 "name": self.name,
                 "description": self.description
+            }
+    def serialize_with_image(self):
+            return {
+                "id": self.id,
+                "name": self.name,
+                "description": self.description,
+                "image_file": self.image.image_file
             }
             
     def save(self):
