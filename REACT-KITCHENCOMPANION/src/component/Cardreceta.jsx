@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import "../style/card.css"
 
 const Cardreceta = ({ foto, titulo, paso1, texto1, paso2, texto2, paso3, texto3, paso4, texto4 }) => {
   return (
@@ -6,7 +7,7 @@ const Cardreceta = ({ foto, titulo, paso1, texto1, paso2, texto2, paso3, texto3,
       <div className="card mb-3" >
         <div className="row g-0">
           <div className="col-md-4 d-flex align-items-center justify-content-center">
-            <img src={foto} className="img-fluid rounded-start" alt="..." />
+            <img src={foto} className="shrink img-fluid rounded-start" alt="..." />
           </div>
           <div className="col-md-8">
             <div className="card-body text-center">

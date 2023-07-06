@@ -1,0 +1,64 @@
+body {
+    padding-top: 100px; /* Agrega un margen superior al cuerpo para dejar espacio para el navbar */
+  }
+
+ul li a {
+    position: relative;
+    display: block;
+    text-transform: uppercase;
+    margin: 20px 0;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #262626;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    transition: .5s;
+    z-index: 1;
+  }
+  
+  ul li a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #8f8d8d;
+    border-bottom: 2px solid #8f8d8d;
+    transform: scaleY(2);
+    opacity: 0;
+    transition: .3s;
+  }
+  
+  ul li a:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8f8d8d;
+    transform: scale(0);
+    opacity: 0;
+    transition: .3s;
+    z-index: -1;
+   
+  }
+ 
+  ul li a:hover:before,
+  ul li a:focus:before {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  
+  ul li a:hover:after,
+  ul li a:focus:after {
+    transform: scaleY(1);
+    opacity: 5;
+  }
+  
+ .navbar{
+    background-color: #fffcfc;
+
+  }

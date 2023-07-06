@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import "../style/navbar.css";
 
 const Navbar = ({
   empresa,
@@ -10,38 +11,35 @@ const Navbar = ({
   enmirefri,
   registrarse,
 }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-white fixed-top">
-        <div className="container-fluid ">
-          <a className="navbar-brand text-black" href="/">
-            {empresa}
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div
-            className="collapse navbar-collapse text-black justify-content-end"
-            id="navbarSupportedContent"
-          >
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <a
-                  className="nav-link active text-black"
-                  aria-current="page"
-                  href="/"
-                >
+    <nav className={`navbar navbar-expand-lg fixed-top ${isMenuOpen ? "active" : ""}`}>
+      <div className="container-fluid">
+        <a className="navbar-brand text-black" href="/">
+          {empresa}
+        </a>
+        <button
+          className={`navbar-toggler  ${isMenuOpen ? "active" : ""}`}
+          type="button"
+          onClick={toggleMenu}
+        >
+          <span className="navbar-toggler-icon "></span>
+        </button>
+        <div className={`collapse navbar-collapse text-black justify-content-end  ${isMenuOpen ? "show" : ""}`}>
+          <div className="nav-item-container  "> {/* Agregado: Contenedor del menú desplegable */}
+            <ul className="navbar-nav ">
+              <li className="nav-item ">
+                <a className="nav-link active text-black" aria-current="page" href="/">
                   {home}
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item ">
                 <a className="nav-link text-black" href="/Enmirefri">
                   {enmirefri}
                 </a>
@@ -57,36 +55,33 @@ const Navbar = ({
                 </a>
               </li>
               <li className="nav-item">
-                <button type="button" className="btn btn-primary">
-                  <Link to="/login" className="text-black">
-                    {login}
-                  </Link>
-                </button>
+                <a className="nav-link text-black" href="/login">
+                  {login}
+                </a>
               </li>
               <li className="nav-item">
-                <button type="button" className="btn btn-warning">
-                  <Link to="/register" className="text-black">
-                    {registrarse}
-                  </Link>
-                </button>
+                <a className="nav-link text-black" href="/register">
+                  {registrarse}
+                </a>
               </li>
             </ul>
           </div>
         </div>
-      </nav>
-      <div className="container-fluid mt-5">{/* {espacio extra} */}</div>
-    </div>
-  );
+      </div>
+    </nav>
+    <div className="container-fluid mt-5">{/* {espacio extra} */}</div>
+  </div>
+);
 };
 
 Navbar.propTypes = {
-  empresa: PropTypes.string,
-  home: PropTypes.string,
-  nosotros: PropTypes.string,
-  contacto: PropTypes.string,
-  login: PropTypes.string,
-  enmirefri: PropTypes.string,
-  registrarse: PropTypes.string,
+empresa: PropTypes.string,
+home: PropTypes.string,
+nosotros: PropTypes.string,
+contacto: PropTypes.string,
+login: PropTypes.string,
+enmirefri: PropTypes.string,
+registrarse: PropTypes.string,
 };
 
 export { Navbar };
