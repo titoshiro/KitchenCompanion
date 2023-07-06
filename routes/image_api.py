@@ -5,7 +5,7 @@ from models.ingredient import Ingredient
 
 api = Blueprint('image_api', __name__)
 
-@app.route('/gallery', methods=['GET'])
+@app.route('/images', methods=['GET'])
 def list_gallery_images():
     
     images = Image.query.filter_by(active=True).all()
@@ -13,7 +13,7 @@ def list_gallery_images():
     
     return jsonify(images), 200
 
-@app.route('/api/gallery/image/upload', methods=['POST'])
+@app.route('/api/images/upload', methods=['POST'])
 def upload_image():
     
     title = request.form['title']
