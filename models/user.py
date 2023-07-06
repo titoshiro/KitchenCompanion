@@ -8,7 +8,7 @@ class User(db.Model):
     username = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(50))
-    ingredients = db.relationship("Ingredient", secondary="ingredient_user", back_populates="users")
+    allergies = db.relationship("Ingredient", secondary="ingredient_user", back_populates="users")
 
     def save(self):
         db.session.add(self)
@@ -38,4 +38,4 @@ class User(db.Model):
         }
 
     def get_allergies(self):
-        return list(map(lambda ingredient: ingredient.serialize(), self.ingredients))
+        return list(map(lambda ingredient: ingredient.serialize(), self.allergies))
