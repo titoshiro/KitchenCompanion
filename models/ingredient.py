@@ -8,7 +8,7 @@ class Ingredient(db.Model):
     food_groups_id = db.Column(db.Integer, db.ForeignKey('food_groups.id'), nullable=False)
     vegan_tag = db.Column(db.Boolean, nullable=False)
     vegetarian_tag = db.Column(db.Boolean, nullable=False)
-    image_ = db.Column(db.Integer, nullable=False)
+    image_ = db.Column(db.String(150), nullable=False)
     users = db.relationship("User", secondary="ingredient_user")
     recipes = db.relationship("Recipe", secondary="ingredient_recipe")
 
