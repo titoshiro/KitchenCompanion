@@ -7,6 +7,11 @@ import foto1 from "../imagenes/foto1.png"
 import foto2 from "../imagenes/foto2.png"
 import foto3 from "../imagenes/foto3.png"
 import Carouselrefri from "../component/carouselrefri";
+import granos from "../imagenes/granos.jpg"
+import carnes from "../imagenes/carne.jpg"
+import Vegetales from "../imagenes/vegetales.jpg"
+import lacteos from "../imagenes/lacteos.jpg"
+import Receta from "../imagenes/receta.jpg"
 
 const Enmirefri = () => {
   const [mostrarRecetadiaria, setMostrarRecetadiaria] = useState(false);
@@ -91,11 +96,14 @@ const Enmirefri = () => {
       
       <Carouselrefri imagen1={foto1} imagen2={foto2} imagen3={foto3}/>
       <br />
+      <h1 className="text-center">ELIGE TUS INGREDIENTES</h1>
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
+
+            
             <Cardformulario
-              imagen="https://picsum.photos/400"
+              imagen={carnes}
               titulo="Proteínas"
               ingrediente="Carne"
               ingrediente2="Pollo"
@@ -108,7 +116,7 @@ const Enmirefri = () => {
           </div>
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
-              imagen="https://picsum.photos/401"
+              imagen={granos}
               titulo="Granos y legumbres"
               ingrediente="Arroz"
               ingrediente2="Pastas"
@@ -119,7 +127,7 @@ const Enmirefri = () => {
           </div>
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
-              imagen="https://picsum.photos/402"
+              imagen={Vegetales}
               titulo="Vegetales"
               ingrediente="Tomate"
               ingrediente2="Choclo"
@@ -135,7 +143,7 @@ const Enmirefri = () => {
           </div>
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
-              imagen="https://picsum.photos/402"
+              imagen={lacteos}
               titulo="Lácteos y otros"
               ingrediente2="Queso"
               ingrediente3="Huevo"
@@ -158,7 +166,7 @@ const Enmirefri = () => {
         {mostrarRecetadiaria && (
           <>
             <Cardreceta
-              foto="https://picsum.photos/409"
+              foto={Receta}
               titulo="Receta del día"
               paso1="Paso 1"
               texto1="lorem ipsum dolor sit amet"
@@ -175,7 +183,7 @@ const Enmirefri = () => {
               <div className="row">
                 <div className="col-3 col-md-3 col-lg-1 mx-auto">
                   <Cards
-                    imagen="https://picsum.photos/409"
+                    imagen={Receta}
                     titulo="Lunes"
                     texto=""
                     boton="Ver"
@@ -187,7 +195,7 @@ const Enmirefri = () => {
                 </div>
                 <div className="col-3 col-md-3 col-lg-1 mx-auto">
                   <Cards
-                    imagen="https://picsum.photos/409"
+                    imagen={Receta}
                     titulo="Martes"
                     texto=""
                     boton="Ver"
@@ -199,7 +207,7 @@ const Enmirefri = () => {
                 </div>
                 <div className="col-3 col-md-3 col-lg-1 mx-auto">
                   <Cards
-                    imagen="https://picsum.photos/409"
+                    imagen={Receta}
                     titulo="Miércoles"
                     texto=""
                     boton="Ver"
@@ -212,7 +220,7 @@ const Enmirefri = () => {
                 </div>
                 <div className="col-3 col-md-3 col-lg-1 mx-auto">
                   <Cards
-                    imagen="https://picsum.photos/409"
+                    imagen={Receta}
                     titulo="Jueves"
                     texto=""
                     boton="Ver"
@@ -224,7 +232,7 @@ const Enmirefri = () => {
                 </div>
                 <div className="col-3 col-md-3 col-lg-1 mx-auto">
                   <Cards
-                    imagen="https://picsum.photos/409"
+                    imagen={Receta}
                     titulo="Viernes"
                     texto=""
                     boton="Ver"
@@ -236,7 +244,7 @@ const Enmirefri = () => {
                 </div>
                 <div className="col-3 col-md-3 col-lg-1 mx-auto">
                   <Cards
-                    imagen="https://picsum.photos/409"
+                    imagen={Receta}
                     titulo="Sábado"
                     texto=""
                     boton="Ver"
@@ -248,7 +256,7 @@ const Enmirefri = () => {
                 </div>
                 <div className="col-3 col-md-3 col-lg-1 mx-auto">
                   <Cards
-                    imagen="https://picsum.photos/409"
+                    imagen={Receta}
                     titulo="Domingo"
                     texto=""
                     boton="Ver"
@@ -267,7 +275,7 @@ const Enmirefri = () => {
           <>
             {diaSeleccionado === "lunes" && (
               <Cardreceta
-                foto="https://picsum.photos/409"
+                foto={Receta}
                 titulo="Receta del Lunes"
                 paso1="Paso 1"
                 texto1="lorem ipsum dolor sit amet"
@@ -282,7 +290,7 @@ const Enmirefri = () => {
 
             {diaSeleccionado === "martes" && (
               <Cardreceta
-                foto="https://picsum.photos/410"
+                foto={Receta}
                 titulo="Receta del Martes"
                 paso1="Paso 1"
                 texto1="lorem ipsum dolor sit amet"
@@ -296,7 +304,7 @@ const Enmirefri = () => {
             )}
             {diaSeleccionado === "miércoles" && (
               <Cardreceta
-                foto="https://picsum.photos/411"
+                foto={Receta}
                 titulo="Receta del Miércoles"
                 paso1="Paso 1"
                 texto1="lorem ipsum dolor sit amet"
@@ -310,7 +318,7 @@ const Enmirefri = () => {
             )}
             {diaSeleccionado === "jueves" && (
               <Cardreceta
-                foto="https://picsum.photos/412"
+                foto={Receta}
                 titulo="Receta del Jueves"
                 paso1="Paso 1"
                 texto1="lorem ipsum dolor sit amet"
@@ -324,7 +332,7 @@ const Enmirefri = () => {
             )}
             {diaSeleccionado === "viernes" && (
               <Cardreceta
-                foto="https://picsum.photos/413"
+                foto={Receta}
                 titulo="Receta del Viernes"
                 paso1="Paso 1"
                 texto1="lorem ipsum dolor sit amet"
@@ -338,7 +346,7 @@ const Enmirefri = () => {
             )}
             {diaSeleccionado === "sábado" && (
               <Cardreceta
-                foto="https://picsum.photos/413"
+                foto={Receta}
                 titulo="Receta del Sábado"
                 paso1="Paso 1"
                 texto1="lorem ipsum dolor sit amet"
@@ -352,7 +360,7 @@ const Enmirefri = () => {
             )}
             {diaSeleccionado === "domingo" && (
               <Cardreceta
-                foto="https://picsum.photos/413"
+                foto={Receta}
                 titulo="Receta del Domingo"
                 paso1="Paso 1"
                 texto1="lorem ipsum dolor sit amet"
@@ -371,7 +379,7 @@ const Enmirefri = () => {
         {/* Imprime la receta generada */}
         {recetaGenerada && recetaGenerada.length > 0 && (
           <Cardreceta
-            foto="https://picsum.photos/409"
+            foto={Receta}
             titulo="Receta generada"
             pasos={recetaGenerada.map((receta, index) => (
               <div key={index}>
