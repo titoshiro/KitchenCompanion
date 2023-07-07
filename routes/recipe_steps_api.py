@@ -14,15 +14,13 @@ def list_recipe_steps():
 @api.route('/recipe_steps', methods=['POST'])
 def add_food_group():
 
-    recipe = Recipe()
-    recipe.recipe_name = data['recipe_name']
-    recipe.ingredient_id = data['ingredient_id']
-    recipe.description = data['description']
-    recipe.image_url = data['imgage_url']
+    recipe_steps = Recipe_steps()
+    recipe_steps.recipe_name = data['recipe_name']
+    recipe_steps.ingredient_id = data['ingredient_id']
+    recipe_steps.description = data['description']
+    recipe_steps.image_url = data['imgage_url']
 
 
-
-    return jsonify({ "message": "POST recipe steps"}), 200
 
 @api.route('/recipe_steps', methods=['PUT'])
 def update_food_group():

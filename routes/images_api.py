@@ -18,8 +18,6 @@ def upload_image():
     
     title = request.form['title']
     image = None
-    #print(title)
-    #print(image)
     
     if not title: return jsonify({"message": "Title is required!"}), 400
     if not 'image' in request.files: 

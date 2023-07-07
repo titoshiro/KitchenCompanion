@@ -8,15 +8,15 @@ api = Blueprint('api_auth', __name__)
 @api.route('/login', methods=['POST'])
 def login():
     
-    username = request.json.get('username')
+    email = request.json.get('email')
     password = request.json.get('password')
     
-    userFound = User.query.filter_by(username=username).first()
+    userFound = User.query.filter_by(email=email).first()
     
-    if not userFound: return jsonify({ "message": "username/password is incorrect"}), 401
+    if not userFound: return jsonify({ "message": "email/password is incorrect"}), 401
     
     if not check_password_hash(userFound.password, password):
-        return jsonify({ "message": "username/password is incorrect"}), 401
+        return jsonify({ "message": "email/password is incorrect"}), 401
     
     acces_token = create_access_token(identity=userFound.id)
     
@@ -29,23 +29,22 @@ def login():
 
 @api.route('/register', methods=['POST'])
 def register():
-    
-    username = request.json.get('username')
-    password = request.json.get('password')
+
     email = request.json.get('email')
+    password = request.json.get('password')
     
-    userFound = User.query.filter_by(username=username).first()
+    userFound = User.query.filter_by(email=email).first()
     
-    if not userFound:
+    if userFound:
+        return jsonify({ "message": "email already in use"}), 409
 
-        if email != userFound.email:
-            return jsonify({ "message": "email already in use"}), 409
-        
-        userFound.email = email
-        userFound.username = username
-        userFound.password = password
+    userFound = User()
+            
+    userFound.email = email        
+    userFound.password = password
+    userFound.username = email
 
-        userFound.save()
+    userFound.save()
         
     data = {
         "user": userFound.serialize()
