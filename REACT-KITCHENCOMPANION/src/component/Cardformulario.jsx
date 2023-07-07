@@ -1,12 +1,24 @@
 import PropTypes from 'prop-types';
 
-const Cardformulario = ({ imagen,titulo, ingrediente, ingrediente2, ingrediente3, ingrediente4, ingrediente5, ingrediente6,ingrediente7,ingrediente8 }) => {
+const Cardformulario = ({
+  imagen,
+  titulo,
+  ingrediente,
+  ingrediente2,
+  ingrediente3,
+  ingrediente4,
+  ingrediente5,
+  ingrediente6,
+  ingrediente7,
+  ingrediente8,
+}) => {
+
   return (
     <>
-      <div className="card-deck ">
-        <img src={imagen} className="card-img-top " alt="Card image cap" />
+      <div className="card-deck">
+        <img src={imagen} className="card-img-top" alt="Card image cap" />
         <div className="card-body">
-          <h5 className="card-title text-center ">{titulo}</h5>
+          <h5 className="card-title text-center">{titulo}</h5>
           {ingrediente !== undefined && (
             <div className="form-check">
               <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
@@ -47,8 +59,7 @@ const Cardformulario = ({ imagen,titulo, ingrediente, ingrediente2, ingrediente3
               </label>
             </div>
           )}
-         
-         {ingrediente7 !== undefined && (
+          {ingrediente6 !== undefined && (
             <div className="form-check">
               <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
               <label className="form-check-label" htmlFor="flexCheckDefault">
@@ -56,11 +67,19 @@ const Cardformulario = ({ imagen,titulo, ingrediente, ingrediente2, ingrediente3
               </label>
             </div>
           )}
-           {ingrediente8 !== undefined && (
+          {ingrediente7 !== undefined && (
             <div className="form-check">
               <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
               <label className="form-check-label" htmlFor="flexCheckDefault">
-                {ingrediente6}
+                {ingrediente7}
+              </label>
+            </div>
+          )}
+          {ingrediente8 !== undefined && (
+            <div className="form-check">
+              <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label className="form-check-label" htmlFor="flexCheckDefault">
+                {ingrediente8}
               </label>
             </div>
           )}
@@ -68,7 +87,7 @@ const Cardformulario = ({ imagen,titulo, ingrediente, ingrediente2, ingrediente3
       </div>
     </>
   );
-}
+};
 
 Cardformulario.propTypes = {
   imagen: PropTypes.string,

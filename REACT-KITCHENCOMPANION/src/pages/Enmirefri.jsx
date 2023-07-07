@@ -8,20 +8,74 @@ import foto2 from "../imagenes/foto2.png"
 import foto3 from "../imagenes/foto3.png"
 import Carouselrefri from "../component/carouselrefri";
 
-
 const Enmirefri = () => {
   const [mostrarRecetadiaria, setMostrarRecetadiaria] = useState(false);
   const [diaSeleccionado, setDiaSeleccionado] = useState("");
+  const [ingredientesSeleccionados, setIngredientesSeleccionados] = useState([]);
   const recetasDiariasRef = useRef(null);
 
   const recetadiaria = () => {
     setMostrarRecetadiaria(!mostrarRecetadiaria);
-    recetasDiariasRef.current.scrollIntoView({ behavior: "smooth" });
+    recetasDiariasRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+
   };
 
   const mostrarReceta = (dia) => {
     setDiaSeleccionado(dia);
   };
+
+  const generarReceta = (ingredientes) => {
+    // Crea un objeto que contenga las recetas correspondientes a cada ingrediente
+    const recetas = {
+      Carne: "Receta de Carne",
+      Pollo: "Receta de Pollo",
+      Pescado: "Receta de Pescado",
+      Mariscos: "Receta de Mariscos",
+      Tofu: "Receta de Tofu",
+      Arroz: "Receta de Arroz",
+      Pastas: "Receta de Pastas",
+      Lentejas: "Receta de Lentejas",
+      Tomate: "Receta de Tomate",
+      Choclo: "Receta de Choclo",
+      Cebolla: "Receta de Cebolla",
+      Papas: "Receta de Papas",
+      Zapallo: "Receta de Zapallo",
+      Palta: "Receta de Palta",
+      zahanoria: "Receta de Zahanoria",
+      champiñion: "Receta de Champiñón",
+      Queso: "Receta de Queso",
+      Huevo: "Receta de Huevo",
+      "Harina de maiz": "Receta de Harina de Maíz",
+      Leche: "Receta de Leche"
+    };
+
+    const recetasSeleccionadas = [];
+
+    // Recorre los ingredientes seleccionados y verifica si hay una receta disponible para cada uno
+    ingredientes.forEach(ingrediente => {
+      if (recetas[ingrediente]) {
+        recetasSeleccionadas.push(recetas[ingrediente]);
+      }
+    });
+
+    // Si se encontraron recetas, se retorna la lista de recetas seleccionadas
+    if (recetasSeleccionadas.length > 0) {
+      return recetasSeleccionadas;
+    } else {
+      return [];
+    }
+  };
+
+  const agregarIngrediente = (ingrediente) => {
+    setIngredientesSeleccionados([...ingredientesSeleccionados, ingrediente]);
+  };
+
+  const removerIngrediente = (ingrediente) => {
+    const nuevosIngredientes = ingredientesSeleccionados.filter(item => item !== ingrediente);
+    setIngredientesSeleccionados(nuevosIngredientes);
+  };
+
+  const recetaGenerada = generarReceta(ingredientesSeleccionados);
 
   return (
     <>
@@ -48,6 +102,8 @@ const Enmirefri = () => {
               ingrediente3="Pescado"
               ingrediente4="Mariscos"
               ingrediente6="Tofu"
+              onSeleccionar={agregarIngrediente}
+              onDeseleccionar={removerIngrediente}
             />
           </div>
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
@@ -57,6 +113,8 @@ const Enmirefri = () => {
               ingrediente="Arroz"
               ingrediente2="Pastas"
               ingrediente3="Lentejas"
+              onSeleccionar={agregarIngrediente}
+              onDeseleccionar={removerIngrediente}
             />
           </div>
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
@@ -71,16 +129,20 @@ const Enmirefri = () => {
               ingrediente6="Palta"
               ingrediente7="zahanoria"
               ingrediente8="champiñion"
+              onSeleccionar={agregarIngrediente}
+              onDeseleccionar={removerIngrediente}
             />
           </div>
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
             <Cardformulario
               imagen="https://picsum.photos/402"
-              titulo="Lacteos y otros"
+              titulo="Lácteos y otros"
               ingrediente2="Queso"
               ingrediente3="Huevo"
-              ingrediente4="Harina de maiz"
+              ingrediente4="Harina de maíz"
               ingrediente5="Leche"
+              onSeleccionar={agregarIngrediente}
+              onDeseleccionar={removerIngrediente}
             />
           </div>
         </div>
@@ -103,7 +165,7 @@ const Enmirefri = () => {
               paso2="Paso 2"
               texto2="lorem ipsum dolor sit amet"
               paso3="Paso 3"
-              texto3="lorem ipsum dolor sit amet"
+             texto3="lorem ipsum dolor sit amet"
               paso4="Paso 4"
               texto4="lorem ipsum dolor sit amet"
             />
@@ -274,9 +336,50 @@ const Enmirefri = () => {
                 texto4="lorem ipsum dolor sit amet"
               />
             )}
-            
-
+            {diaSeleccionado === "sábado" && (
+              <Cardreceta
+                foto="https://picsum.photos/413"
+                titulo="Receta del Sábado"
+                paso1="Paso 1"
+                texto1="lorem ipsum dolor sit amet"
+                paso2="Paso 2"
+                texto2="lorem ipsum dolor sit amet"
+                paso3="Paso 3"
+                texto3="lorem ipsum dolor sit amet"
+                paso4="Paso 4"
+                texto4="lorem ipsum dolor sit amet"
+              />
+            )}
+            {diaSeleccionado === "domingo" && (
+              <Cardreceta
+                foto="https://picsum.photos/413"
+                titulo="Receta del Domingo"
+                paso1="Paso 1"
+                texto1="lorem ipsum dolor sit amet"
+                paso2="Paso 2"
+                texto2="lorem ipsum dolor sit amet"
+                paso3="Paso 3"
+                texto3="lorem ipsum dolor sit amet"
+                paso4="Paso 4"
+                texto4="lorem ipsum dolor sit amet"
+              />
+            )}
           </>
+        )}
+      </div>
+      <div>
+        {/* Imprime la receta generada */}
+        {recetaGenerada && recetaGenerada.length > 0 && (
+          <Cardreceta
+            foto="https://picsum.photos/409"
+            titulo="Receta generada"
+            pasos={recetaGenerada.map((receta, index) => (
+              <div key={index}>
+                <h4>Paso {index + 1}</h4>
+                <p>{receta}</p>
+              </div>
+            ))}
+          />
         )}
       </div>
     </>
