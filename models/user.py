@@ -5,9 +5,9 @@ from models.ingredient import Ingredient
 class User(db.Model):
     __tablename__='users'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), nullable=False)
+    name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(150), unique=True)
-    password = db.Column(db.String(50))
+    password = db.Column(db.String(120))
     allergies = db.relationship("Ingredient", secondary="ingredient_user")
 
     def save(self):
@@ -24,14 +24,14 @@ class User(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "username": self.username,
+            "user": self.name,
             "email": self.email,
         }
 
     def serialize_with_ingredient(self):
         return {
             "id": self.id,
-            "username": self.username,
+            "name": self.name,
             "email": self.email,
             "ingredient": self.get_allergies()
         }

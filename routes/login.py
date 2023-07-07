@@ -32,6 +32,7 @@ def register():
 
     email = request.json.get('email')
     password = request.json.get('password')
+    password = generate_password_hash(password)
     
     userFound = User.query.filter_by(email=email).first()
     
@@ -42,7 +43,7 @@ def register():
             
     userFound.email = email        
     userFound.password = password
-    userFound.username = email
+    userFound.name = email
 
     userFound.save()
         
