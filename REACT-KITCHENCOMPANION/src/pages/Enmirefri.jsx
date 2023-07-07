@@ -278,13 +278,13 @@ const Enmirefri = () => {
                 foto={Receta}
                 titulo="Receta del Lunes"
                 paso1="Paso 1"
-                texto1="lorem ipsum dolor sit amet"
+                texto1="lorem ipsum dolor sit ametsq"
                 paso2="Paso 2"
-                texto2="lorem ipsum dolor sit amet"
+                texto2="lorem ipsum dolor sit ametsq"
                 paso3="Paso 3"
-                texto3="lorem ipsum dolor sit amet"
+                texto3="lorem ipsum dolor sit ametsq"
                 paso4="Paso 4"
-                texto4="lorem ipsum dolor sit amet"
+                texto4="lorem ipsum dolor sit ametsq"
               />
             )}
 
