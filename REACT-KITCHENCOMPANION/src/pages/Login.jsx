@@ -21,7 +21,7 @@ const Login = () => {
       .then((response) => {
         if (response.ok) {
          
-          navigate('/home');
+          navigate('/');
         } else {
         
           console.error('Error:', response.status);
@@ -48,7 +48,7 @@ const Login = () => {
 
       <form onSubmit={handleLogin}>
         <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
+          <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
           <input value={email} onChange={(e) => setEmail(e.target.value)} type="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
           <div id="emailHelp" className="form-text"></div>
         </div>
