@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import "../style/navbar.css";
+import logo from "../imagenes/logoblanco1.png"
 
 const Navbar = ({
-  empresa,
+ 
   home,
   nosotros,
   contacto,
@@ -21,9 +22,7 @@ const Navbar = ({
     <div>
     <nav className={`navbar navbar-expand-lg fixed-top ${isMenuOpen ? "active" : ""}`}>
       <div className="container-fluid">
-        <a className="navbar-brand text-black" href="/">
-          {empresa}
-        </a>
+        <img className="imagen" src={logo} alt="" />
         <button
           className={`navbar-toggler  ${isMenuOpen ? "active" : ""}`}
           type="button"
@@ -75,7 +74,7 @@ const Navbar = ({
 };
 
 Navbar.propTypes = {
-empresa: PropTypes.string,
+
 home: PropTypes.string,
 nosotros: PropTypes.string,
 contacto: PropTypes.string,

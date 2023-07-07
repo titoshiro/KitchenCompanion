@@ -11,10 +11,6 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-<<<<<<< HEAD
-=======
-
->>>>>>> cf9fe9823d57af9c76dee2805daca0b3de7e7500
     fetch("http://127.0.0.1:5000/api/register", {
       method: "POST",
       headers: {
@@ -91,7 +87,7 @@ const Register = () => {
             id="exampleInputPassword1"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-warning">
           Register
         </button>
       </form>
