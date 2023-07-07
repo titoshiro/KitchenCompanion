@@ -58,8 +58,17 @@ ul li a {
  .navbar{
     background-color: #fffcfc;
 
+  
+
   }
 .navbar:hover{
   background-color: #f9f9c3;
   transition: 0.3s;
+}
+.imagen {
+  width: 200px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  
 }

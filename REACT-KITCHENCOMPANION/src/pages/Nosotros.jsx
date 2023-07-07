@@ -2,11 +2,15 @@
 import { Navbar } from "../component/navbar";
 import Cards  from  "../component/Cards";
 import Jumbotron from '../component/Jumbotron';
+import restriccion from "../imagenes/restriccion.png"
+import restriccion2 from "../imagenes/restriccion2.png"
+import restriccion3 from "../imagenes/restriccion3.png"
+import BotonRefri from "../component/botonRefri";
 
 const Nosotros = () => {
   return (
     <>
-    <Navbar
+      <Navbar
         empresa="KITCHENCOMPANION"
         home="HOME"
         nosotros="NOSOTROS"
@@ -17,42 +21,26 @@ const Nosotros = () => {
       />
       <Jumbotron
         titulo="¿KITCHENCOMPANION?"
-        texto="Diseñada para ayudarte a organizar tus comidas de manera eficiente y creativa.
-       Estas aplicacion te permite gestionar tu inventario de alimentos en el refrigerador,
-       crear listas de compras,acceder a un recetario variado y cintar con una zona especial
-       para manejar restricciones alimentarias."
-        subtexto="Con KitchenCompanion, simplificas la planificacion de comidas y descubriras
-       nuevas recetas basadas en los ingredientes disponibles en tu hogar"
+        texto="Diseñada para ayudarte a organizar tus comidas de manera eficiente y creativa. Estas aplicacion te permite gestionar tu inventario de alimentos en el refrigerador, crear listas de compras,acceder a un recetario variado y cintar con una zona especial para manejar restricciones alimentarias."
+        subtexto="Con KitchenCompanion, simplificas la planificacion de comidas y descubriras nuevas recetas basadas en los ingredientes disponibles en tu hogar"
       />
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6 col-lg-4">
-            <Cards
-              imagen="https://picsum.photos/200"
-              titulo="¿ No tienes tiempo o estas lleno de stress?"
-              texto="Presiona en mi refri"
-              boton="Mi Refri"
-              direccion="Enmirefri"
-            />
+            <Cards imagen={restriccion3} />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <Cards
-              imagen="https://picsum.photos/300"
-              titulo="Utiliza los ingredientes de tu refrigerador y evitas desperdicios y gastos extras"
-              texto=""
-              boton={undefined}
-            />
+            <Cards imagen={restriccion2} />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <Cards
-              imagen="https://picsum.photos/400"
-              titulo="¿Restricción alimentaria o alergias?"
-              texto="Solo agregala y pan comido"
-              boton={undefined}
-            />
+            <Cards imagen={restriccion} />
+           
           </div>
         </div>
       </div>
+      <div className="container d-flex justify-content-center"> {/* Agrega la clase CSS 'd-flex' para habilitar Flexbox y 'justify-content-center' para centrar horizontalmente */}
+              <BotonRefri />
+            </div>
     </>
   );
 };
