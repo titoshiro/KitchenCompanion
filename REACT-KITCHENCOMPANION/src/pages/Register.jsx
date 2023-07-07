@@ -5,19 +5,22 @@ import { Navbar } from "../component/navbar";
 const Register = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
 
   const handleRegister = (e) => {
     e.preventDefault();
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> cf9fe9823d57af9c76dee2805daca0b3de7e7500
     fetch("http://127.0.0.1:5000/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, password }),
+      body: JSON.stringify({ name, password, email }),
     })
       .then((response) => {
         if (response.ok) {
@@ -27,12 +30,12 @@ const Register = () => {
         }
       })
       .catch((error) => {
-        console.error("Error",error);
+        console.error("Error", error);
       });
   };
 
   return (
-    <div>
+    <div className="container">
       <Navbar
         empresa="KITCHENCOMPANION"
         home="HOME"
@@ -57,7 +60,23 @@ const Register = () => {
             aria-describedby="emailHelp"
           />
           <div id="emailHelp" className="form-text">
-            name
+            Name
+          </div>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">
+            Email
+          </label>
+          <input
+            value={email}
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            className="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" className="form-text">
+            Enter your email
           </div>
         </div>
         <div className="mb-3">

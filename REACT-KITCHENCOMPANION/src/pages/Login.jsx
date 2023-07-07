@@ -34,6 +34,7 @@ const Login = () => {
 
   return (
     <>
+    <div className="container">
        <Navbar
         empresa="KITCHENCOMPANION"
         home="HOME"
@@ -57,7 +58,7 @@ const Login = () => {
         </div>
         <button type="submit" className="btn btn-primary">Entrar</button>
       </form>
-      
+      </div>
     </>
   );
 };

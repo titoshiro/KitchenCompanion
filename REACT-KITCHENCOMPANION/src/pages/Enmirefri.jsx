@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import Buscador from "../component/Buscador";
 import { Navbar } from "../component/navbar";
 import Cardformulario from "../component/Cardformulario";
 import Cardreceta from "../component/Cardreceta";
@@ -35,8 +34,9 @@ const Enmirefri = () => {
         enmirefri="EN MI REFRI"
         registrarse="REGISTRATE"
       />
+      
       <Carouselrefri imagen1={foto1} imagen2={foto2} imagen3={foto3}/>
-      <Buscador />
+      <br />
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6 col-lg-3 mx-auto">
