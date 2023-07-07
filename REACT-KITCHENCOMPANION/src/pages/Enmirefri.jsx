@@ -274,7 +274,7 @@ const Enmirefri = () => {
                 texto4="lorem ipsum dolor sit amet"
               />
             )}
-            {diaSeleccionado /* Continuar con los demás días */}
+            
 
           </>
         )}
