@@ -20,10 +20,17 @@ def add_food_group():
     food_group.save()
     return jsonify({ "message": "POST Food group"}), 200
 
-@api.route('/food_groups', methods=['PUT'])
+@api.route('/food_groups/{id}', methods=['PUT'])
 def update_food_group():
+
+
+
     return jsonify({ "message": "PUT Food group"}), 200
 
-@api.route('/food_groups', methods=['DELETE'])
+@api.route('/food_groups/{id}', methods=['DELETE'])
 def remove_food_group():
+
+    food_group = Food_Group().query.get(id)
+    food_group.delete()
+
     return jsonify({ "message": "Delete Food group"}), 200

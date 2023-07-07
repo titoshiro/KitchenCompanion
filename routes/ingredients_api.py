@@ -15,16 +15,18 @@ def list_users():
 def add_food_group():
 
     ingredient = Ingredient()
-    ingredient. name = data['recipe_name']
+    ingredient.name = data['recipe_name']
     ingredient.ingredient_id = data['food_group_id']
     ingredient.save()
-    return jsonify({ "message": "POST user"}), 200
 
-
-@api.route('/ingredients', methods=['PUT'])
+@api.route('/ingredients/{id}', methods=['PUT'])
 def update_food_group():
     return jsonify({ "message": "PUT ingredient"}), 200
 
-@api.route('/ingredients', methods=['DELETE'])
-def remove_food_group():
+@api.route('/ingredients/{id}', methods=['DELETE'])
+def remove_ingredient():
+
+    ingredient = Ingredient.query.get(id)
+    ingredient.delete()
+
     return jsonify({ "message": "Delete ingredient"}), 200
