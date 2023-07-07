@@ -47,9 +47,11 @@ def remove_allergy():
 
     ingredient = Ingredient.query.get(ingredient)
     ingredient: user.allergies.pop(ingredient)
-@api.route('/users', methods=['DELETE'])
+
+@api.route('/users/{id}', methods=['DELETE'])
 def remove_user():
 
-
+    user = User.query.get(id)
+    user.delete()
 
     return jsonify({ "message": "Delete user"}), 200

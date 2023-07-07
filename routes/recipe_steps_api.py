@@ -22,7 +22,7 @@ def add_food_group():
     recipe_steps.image_url = data['imgage_url']
 
 @api.route('/recipes_steps/{id}', methods=['GET'])
-def add_food_group():
+def list_recipe_steps_by_id():
     
     recipe = Recipe.query.get(id)
     recipe_steps = recipe.recipe_steps
@@ -34,6 +34,9 @@ def add_food_group():
 def update_food_group():
     return jsonify({ "message": "PUT recipe steps"}), 200
 
-@api.route('/recipe_steps', methods=['DELETE'])
+@api.route('/recipe_steps/{id}', methods=['DELETE'])
 def remove_food_group():
+
+    recipe_step = Recipe_Step.query.get(id)
+
     return jsonify({ "message": "Delete recipe steps"}), 200

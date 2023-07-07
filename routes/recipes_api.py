@@ -12,7 +12,7 @@ def list_recipes():
     return jsonify(recipes), 200
 
 @api.route('/recipes', methods=['POST'])
-def add_food_group():
+def add_recipe():
     data = request.get_json()
     recipe = Recipe()
     recipe.recipe_name = data['recipe_name']
@@ -24,7 +24,7 @@ def add_food_group():
     return jsonify({ "message": "POST recipe"}), 200
 
 @api.route('/recipes/{id}', methods=['GET'])
-def add_food_group():
+def list_recipe():
     
     recipe = Recipe.query.get(id)
 
