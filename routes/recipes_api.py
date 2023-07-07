@@ -23,6 +23,13 @@ def add_food_group():
 
     return jsonify({ "message": "POST recipe"}), 200
 
+@api.route('/recipes/{id}', methods=['GET'])
+def add_food_group():
+    
+    recipe = Recipe.query.get(id)
+
+    return jsonify(recipe.serialize()), 200
+
 @api.route('/recipes', methods=['PUT'])
 def update_food_group():
     return jsonify({ "message": "PUT recipe"}), 200

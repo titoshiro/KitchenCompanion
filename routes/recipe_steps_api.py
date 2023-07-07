@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 from models.recipe_step import Recipe_Step
+from models.recipe import Recipe
 
 api = Blueprint('recipe_steps_api', __name__)
 
@@ -20,6 +21,13 @@ def add_food_group():
     recipe_steps.description = data['description']
     recipe_steps.image_url = data['imgage_url']
 
+@api.route('/recipes_steps/{id}', methods=['GET'])
+def add_food_group():
+    
+    recipe = Recipe.query.get(id)
+    recipe_steps = recipe.recipe_steps
+
+    return jsonify(recipe_steps.serialize()), 200
 
 
 @api.route('/recipe_steps', methods=['PUT'])
