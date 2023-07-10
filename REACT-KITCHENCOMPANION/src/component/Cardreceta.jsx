@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import "../style/card.css"
-import "../style/Cardreceta.css"
+import "../style/cardreceta.css"
 
 const Cardreceta = ({ foto, titulo, paso1}) => {
   return (
