@@ -25,7 +25,9 @@ const Home = () => {
       imagen1={foto}
       video1={video1}
       video2={video2}/>
-      <BotonRefri/>
+      <BotonRefri
+      titulo="EN MI REFRI"
+      href="/enmirefri"/>
     </>
   );
 };

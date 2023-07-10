@@ -1,0 +1,16 @@
+.receta{
+    background-image: url("fondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; 
+  
+}
+.pasos{
+
+    font-size: 14px;
+    overflow: hidden; 
+    white-space: pre-wrap; 
+    word-wrap: break-word; 
+
+  }

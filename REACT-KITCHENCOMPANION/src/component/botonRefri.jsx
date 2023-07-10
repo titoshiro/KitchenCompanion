@@ -1,11 +1,19 @@
 import "../style/botonRefri.css"
-const BotonRefri = () => {
+import PropTypes from "prop-types";
+
+
+const BotonRefri = ({href,titulo,onclick}) => {
   return (
     <div className="container-boton">
-    <a href="/enmirefri" className="ov-btn-slide-left">EN MI REFRI</a>
+    <a onClick={onclick} href={href}className="ov-btn-slide-left">{titulo}</a>
     
     </div>
   )
 }
 
+BotonRefri.propTypes = {
+  href: PropTypes.string,
+  titulo: PropTypes.string,
+  onclick: PropTypes.string,
+}
 export default BotonRefri
