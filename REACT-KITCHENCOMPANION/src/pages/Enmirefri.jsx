@@ -1,7 +1,7 @@
 import { useState} from "react";
 import { Navbar } from "../component/navbar";
 import Cardformulario from "../component/Cardformulario";
-import Cardreceta from "../component/Cardreceta";
+import Cardreceta from "../component/cardreceta"
 import foto1 from "../imagenes/foto1.png"
 import foto2 from "../imagenes/foto2.png"
 import foto3 from "../imagenes/foto3.png"
@@ -11,7 +11,7 @@ import carnes from "../imagenes/carne.jpg"
 import Vegetales from "../imagenes/vegetales.jpg"
 import lacteos from "../imagenes/lacteos.jpg"
 import BotonRefri from "../component/botonRefri";
-// import Receta from "../imagenes/receta.jpg"
+
 
 function Enmirefri() {
   const [ingredientes, setIngredientes] = useState({
