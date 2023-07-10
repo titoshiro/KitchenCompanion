@@ -1,7 +1,7 @@
 import { useState} from "react";
 import { Navbar } from "../component/navbar";
 import Cardformulario from "../component/Cardformulario";
-import Cardreceta from "../component/cardreceta";
+import Cardreceta from "../component/cardreceta.css";
 import foto1 from "../imagenes/foto1.png"
 import foto2 from "../imagenes/foto2.png"
 import foto3 from "../imagenes/foto3.png"
