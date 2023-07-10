@@ -39,7 +39,9 @@ const Nosotros = () => {
         </div>
       </div>
       <div className="container d-flex justify-content-center"> {/* Agrega la clase CSS 'd-flex' para habilitar Flexbox y 'justify-content-center' para centrar horizontalmente */}
-              <BotonRefri />
+              <BotonRefri 
+              titulo="EN MI REFRI"
+              href="/enmirefri"/>
             </div>
     </>
   );
