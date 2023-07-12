@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import "../style/card.css"
 import "../style/cardreceta.css"
 
-const Cardreceta = ({ foto, titulo, paso1}) => {
+const Cardreceta = ({ foto, titulo, paso1, recetaRef}) => {
   return (
     <>
-      <div className="receta container card mb-3" >
+      <div ref={recetaRef} className="receta container card mb-3" >
         <div className="row g-0">
           <div className="col-md-3 d-flex align-items-center justify-content-center">
             <img src={foto} className="shrink img-fluid rounded-start" alt="..." />
@@ -28,6 +28,7 @@ Cardreceta.propTypes = {
   foto: PropTypes.string,
   titulo: PropTypes.string,
   paso1: PropTypes.string,
+  recetaRef:PropTypes.string,
 };
 
 export default Cardreceta;
