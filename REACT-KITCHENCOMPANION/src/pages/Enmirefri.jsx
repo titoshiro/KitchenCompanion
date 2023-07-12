@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState,useRef} from "react";
 import { Navbar } from "../component/navbar";
 import Cardformulario from "../component/Cardformulario";
 import Cardreceta from "../component/cardreceta"
@@ -31,7 +31,10 @@ function Enmirefri() {
     const [imagenReceta, setImagenReceta] = useState('');
     const [pasosReceta, setPasosReceta] = useState('');
     const [mostrarReceta, setMostrarReceta] = useState(false);
-  
+    const recetaRef = useRef(null);
+    const inicioRef = useRef(null)
+
+
     const generarReceta = () => {
       let nuevaReceta = '';
       let nuevaImagen = '';
@@ -66,9 +69,9 @@ function Enmirefri() {
           break;
   
         default:
-          nuevaReceta = 'Selecciona al menos un ingrediente para ver una receta.';
+          nuevaReceta = "Debes elegir un ingrediente";
           nuevaImagen = falla;
-          nuevosPasos = "Elige los ingredientes que tengas en tu refri";
+          nuevosPasos = "Falta poco para tener tu receta";
           break;
       }
     
@@ -76,6 +79,10 @@ function Enmirefri() {
       setImagenReceta(nuevaImagen);
       setPasosReceta(nuevosPasos);
       setMostrarReceta(true);
+ 
+      setTimeout(() => {
+        recetaRef.current.scrollIntoView({ behavior: "smooth" });
+      }, 0);
       
     };
   
@@ -103,6 +110,8 @@ function Enmirefri() {
       setImagenReceta('');
       setPasosReceta('');
       setMostrarReceta(false);
+      inicioRef.current.scrollIntoView({ behavior: "auto" });
+     
     };
   
     return (
@@ -110,7 +119,7 @@ function Enmirefri() {
         <Navbar empresa="KITCHENCOMPANION" home="HOME" nosotros="NOSOTROS" contacto="CONTACTOS" login="INICIAR SESIÓN" enmirefri="EN MI REFRI" registrarse="REGISTRATE" />
         <Carouselrefri imagen1={foto1} imagen2={foto2} imagen3={foto3} />
         <br />
-        <h1 className="text-center">ELIGE TUS INGREDIENTES</h1>
+        <h1 ref={inicioRef} className="text-center">ELIGE TUS INGREDIENTES</h1>
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6 col-lg-3 mx-auto">
@@ -186,19 +195,21 @@ function Enmirefri() {
           </div>
         </div>
         {mostrarReceta && (
-          <>
+        <>
+          
             <Cardreceta
               foto={imagenReceta}
               titulo={receta}
               paso1={pasosReceta}
+              recetaRef={recetaRef}
             />
-            <BotonRefri
-            titulo="REINICIAR"
-            onclick={reiniciarTodo}/>
-          </>
-        )}
-      </>
-    );
-  }
+          
+          <BotonRefri titulo="REINICIAR" onclick={reiniciarTodo} />
+        </>
+      )}
+    </>
+  );
+}
+
   
   export default Enmirefri;

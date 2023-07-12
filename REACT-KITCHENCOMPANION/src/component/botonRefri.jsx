@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const BotonRefri = ({href,titulo,onclick}) => {
   return (
     <div className="container-boton">
-    <a onClick={onclick} href={href}className="ov-btn-slide-left">{titulo}</a>
+    <a onClick={onclick} href={href}className="ov-btn-slide-left" style={{ cursor: "pointer" }}>{titulo} </a>
     
     </div>
   )
