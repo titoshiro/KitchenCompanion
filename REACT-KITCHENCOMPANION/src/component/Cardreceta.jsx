@@ -8,9 +8,9 @@ const Cardreceta = ({ foto, titulo, paso1, recetaRef}) => {
       <div ref={recetaRef} className="receta container card mb-3" >
         <div className="row g-0">
           <div className="col-md-3 d-flex align-items-center justify-content-center">
-            <img src={foto} className="shrink img-fluid rounded-start" alt="..." />
+            <img src={foto} className="shrink img-fluid rounded-start m-3" alt="..." />
           </div>
-          <div className="col-md-8">
+          <div className="col-md-8"> 
             <div className="card-body ">
               <h2 className="card-title">{titulo}</h2>
               <p className="pasos card-text">
