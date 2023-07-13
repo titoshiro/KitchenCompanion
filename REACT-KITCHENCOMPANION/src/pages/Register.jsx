@@ -55,9 +55,10 @@ const Register = () => {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            placeholder="Name"
           />
           <div id="emailHelp" className="form-text">
-            Name
+            
           </div>
         </div>
         <div className="mb-3">
@@ -71,9 +72,10 @@ const Register = () => {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            placeholder="Enter your email"
           />
           <div id="emailHelp" className="form-text">
-            Enter your email
+            
           </div>
         </div>
         <div className="mb-3">
@@ -86,7 +88,16 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
             className="form-control"
             id="exampleInputPassword1"
+            placeholder=""
           />
+        </div>
+        <div className="mb-3">
+          
+
+
+
+
+
         </div>
         <button type="submit" className="btn btn-warning">
           Register

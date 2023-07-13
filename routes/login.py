@@ -18,10 +18,10 @@ def login():
     if not check_password_hash(userFound.password, password):
         return jsonify({ "message": "email/password is incorrect"}), 401
     
-    acces_token = create_access_token(identity=userFound.id)
+    access_token = create_access_token(identity=userFound.id)
     
     data = {
-        "access_token": acces_token,
+        "access_token": access_token,
         "user": userFound.serialize()
     }
 
