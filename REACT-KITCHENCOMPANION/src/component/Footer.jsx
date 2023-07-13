@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../style/footer.css";
+import "../style/styles.css"
 
 const Footer = ({
   facebook,
@@ -62,12 +63,12 @@ const Footer = ({
 };
 
 Footer.propTypes = {
-  facebook: PropTypes.string,
-  instagram: PropTypes.string,
-  twitter: PropTypes.string,
-  google: PropTypes.string,
-  linkedin: PropTypes.string,
-  github: PropTypes.string,
+  facebook: PropTypes.object,
+  instagram: PropTypes.object,
+  twitter: PropTypes.object,
+  google: PropTypes.object,
+  linkedin: PropTypes.object,
+  github: PropTypes.object,
 };
 
 export { Footer };
