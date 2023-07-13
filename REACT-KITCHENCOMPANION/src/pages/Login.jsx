@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../component/navbar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -9,6 +11,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    
 
     
     fetch('http://localhost:5000/api/login', {
@@ -23,7 +26,7 @@ const Login = () => {
          
           navigate('/');
         } else {
-        
+          LoginError(response.status);
           console.error('Error:', response.status);
         }
       })
@@ -31,6 +34,16 @@ const Login = () => {
         console.error('Error:', error);
       });
   };
+
+  const LoginError = (code) => {
+    switch(code){
+      case 401:
+        toast.warning('Credenciales invalidas');
+        break
+    }
+
+
+  }
 
   return (
     <>
@@ -58,6 +71,7 @@ const Login = () => {
         </div>
         <button type="submit" className="btn btn-warning">Entrar</button>
       </form>
+      <ToastContainer/>
       </div>
     </>
   );

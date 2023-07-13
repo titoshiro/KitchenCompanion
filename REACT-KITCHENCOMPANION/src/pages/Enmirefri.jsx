@@ -1,7 +1,7 @@
 import { useState,useRef} from "react";
 import { Navbar } from "../component/navbar";
 import Cardformulario from "../component/Cardformulario";
-import Cardreceta from "../component/cardreceta"
+import Cardreceta from "../component/Cardreceta"
 import foto1 from "../imagenes/foto1.png"
 import foto2 from "../imagenes/foto2.png"
 import foto3 from "../imagenes/foto3.png"
@@ -11,8 +11,8 @@ import carnes from "../imagenes/carne.jpg"
 import Vegetales from "../imagenes/vegetales.jpg"
 import lacteos from "../imagenes/lacteos.jpg"
 import BotonRefri from "../component/botonRefri";
-import platocarne from "../imagenes/platocarne.jpg"
-import platovegano from "../imagenes/platovegano.jpg"
+import platocarne from "../imagenes/platoCarne.jpg"
+import platovegano from "../imagenes/platoVegano.jpg"
 import falla from "../imagenes/falla.jpg"
 
 function Enmirefri() {
