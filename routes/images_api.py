@@ -13,7 +13,7 @@ def list_gallery_images():
     
     return jsonify(images), 200
 
-@api.route('/api/images/upload', methods=['POST'])
+@api.route('/images/upload', methods=['POST'])
 def upload_image():
     
     title = request.form['title']

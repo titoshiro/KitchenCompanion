@@ -9,8 +9,6 @@ import video2 from "../imagenes/video2.1.mp4"
 
 const Home = () => {
 
-
-
   return (
 
     <>
