@@ -71,4 +71,4 @@ Footer.propTypes = {
   github: PropTypes.object,
 };
 
-export { Footer };
+export default Footer ;

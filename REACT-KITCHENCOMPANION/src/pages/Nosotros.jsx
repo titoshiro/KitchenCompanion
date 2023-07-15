@@ -1,10 +1,7 @@
 
-import { Navbar } from "../component/navbar";
+import Navbar  from "../component/navbar";
 import Cards  from  "../component/Cards";
-import Jumbotron from '../component/Jumbotron';
-import restriccion from "../imagenes/restriccion.png"
-import restriccion2 from "../imagenes/restriccion2.png"
-import restriccion3 from "../imagenes/restriccion3.png"
+import Jumbotron from '../component/jumbotron';
 import BotonRefri from "../component/botonRefri";
 
 const Nosotros = () => {
@@ -27,13 +24,13 @@ const Nosotros = () => {
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6 col-lg-4">
-            <Cards imagen={restriccion3} />
+            <Cards imagen="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371097/restriccion3.png" />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <Cards imagen={restriccion2} />
+            <Cards imagen="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371097/restriccion2.png" />
           </div>
           <div className="col-12 col-md-6 col-lg-4">
-            <Cards imagen={restriccion} />
+            <Cards imagen="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371098/restriccion_hzhxqy.png" />
            
           </div>
         </div>

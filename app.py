@@ -1,11 +1,12 @@
 import os
-from flask import Flask, jsonify
+from flask import Flask, jsonify , request
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from models import db
 import cloudinary
 import cloudinary.uploader
+
 
 from models.food_group import Food_Group
 from models.ingredient import Ingredient
@@ -48,14 +49,31 @@ app.register_blueprint(api_images, url_prefix="/api")
 app.register_blueprint(login, url_prefix="/api")
 
 cloudinary.config( 
-  cloud_name = os.getenv("CLOUDINARY_CLOUD_NAME"), 
-  api_key = os.getenv("CLOUDINARY_API_KEY"), 
-  api_secret =  os.getenv("CLOUDINARY_API_SECRET")
-)
+    cloud_name = os.getenv("CLOUDINARY_CLOUD_NAME"), 
+    api_key = os.getenv("CLOUDINARY_API_KEY"), 
+    api_secret =  os.getenv("CLOUDINARY_API_SECRET") )
+
+@app.route('/api/images/upload', methods=['POST'])
+def upload_image():
+    if 'image' not in request.files:
+        return jsonify({"message": "Image is required!"}), 400
+    
+    image = request.files['image']
+    
+    if image.filename == '':
+        return jsonify({"message": "No image selected!"}), 400
+    
+    response = cloudinary.uploader.upload(image, folder="gallery_project")
+    
+    if response:
+        
+        return jsonify({"message": "Image uploaded successfully"}), 201
+
+    return jsonify({"message": "Error uploading image"}), 500
 
 @app.route('/')
 def main():
-    return jsonify({ "message": "API REST With Flask"}), 200
+    return jsonify({"message": "API REST With Flask"}), 200
 
 if __name__ == '__main__':
     app.run()

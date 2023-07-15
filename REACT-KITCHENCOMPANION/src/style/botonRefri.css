@@ -1,15 +1,16 @@
 
 .ov-btn-slide-left {
-    font-family: "Rubik", sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f9f9c3; /* color de fondo */
-    color: #060606; /* color de fuente */
-    border: 3px solid #403e3e; /* tamaño y color de borde */
+    color: #383333; /* color de fuente */
+    border: 3px solid #dfdede; /* tamaño y color de borde */
     padding: 16px 20px;
     border-radius: 10px; /* redondear bordes */
     position: relative;
     z-index: 1;
     overflow: hidden;
     display: inline-block;
+    text-decoration: none;
   }
   .ov-btn-slide-left:hover {
     color: #7c7c7b; /* color de fuente hover */
