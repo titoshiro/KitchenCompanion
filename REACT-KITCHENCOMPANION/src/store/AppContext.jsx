@@ -1,44 +1,31 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from "react";
+import getState from "./flux";
 
-const AppContext = createContext(null);
+export const AppContext = createContext(null);
 
-const AppProvider = ({ children }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const injectContext = (Component) => {
+    const StoreWrapper = (props) => {
+        const [state, setState] = useState(getState({
+            getStore: () => state.store,
+            getActions: () => state.actions,
+            setStore: (updateStore) => setState({
+                store: Object.assign(state.store, updateStore), // { a: 8, b: 6}
+                actions: { ...state.actions }
+            })
+        }));
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === 'username') {
-      setUsername(value);
-    } else if (name === 'password') {
-      setPassword(value);
+        useEffect(() => {
+            state.actions.saludo();
+        }, [])
+
+        return (
+            <AppContext.Provider value={state}>
+                <Component />
+            </AppContext.Provider>
+        )
     }
-  };
 
-  const login = (e, navigate) => {
-    e.preventDefault();
-    // Aquí puedes agregar la lógica de autenticación
-    // por ejemplo, realizar una solicitud HTTP para verificar las credenciales
-    // y navegar a la página correspondiente según el resultado
-    navigate('/dashboard'); // Ejemplo de navegación después de iniciar sesión
-  };
+    return StoreWrapper;
+}
 
-  const contextValue = {
-    store: {
-      username,
-      password,
-    },
-    actions: {
-      handleChange,
-      login,
-    },
-  };
-
-  return (
-    <AppContext.Provider value={contextValue}>
-      {children}
-    </AppContext.Provider>
-  );
-};
-
-export { AppContext, AppProvider };
+export default injectContext;

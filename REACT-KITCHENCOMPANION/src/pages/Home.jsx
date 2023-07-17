@@ -1,6 +1,6 @@
 
 import Navbar  from "../component/navbar";
-import Carousel from "../component/carousel"
+import Carousel from "../component/Carousel"
 import BotonRefri from "../component/botonRefri"
 
 const Home = () => {

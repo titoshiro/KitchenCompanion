@@ -1,7 +1,7 @@
 import { useState,useRef} from "react";
 import  Navbar  from "../component/navbar";
-import Cardformulario from "../component/cardformulario";
-import Cardreceta from "../component/cardreceta"
+import Cardformulario from "../component/Cardformulario";
+import Cardreceta from "../component/Cardreceta"
 import Carouselrefri from "../component/carouselrefri";
 import BotonRefri from "../component/botonRefri";
 

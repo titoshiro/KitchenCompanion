@@ -3,20 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import  Navbar  from '../component/navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { UserContext, TokenContext } from '../Context/UserContext';
+import { AppContext } from '../store/AppContext';
 
 const Login = () => {
   const navigate = useNavigate();
- // const [token, setToken] = useContext(TokenContext);
- // const [user, setUser] = useContext(UserContext);
+  const [token, setToken] = useContext(TokenContext);
+  const [user, setUser] = useContext(UserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
-    e.preventDefault();
-    
-
-    
+    e.preventDefault();   
     fetch('http://localhost:5000/api/login', {
       method: 'POST',
       headers: {

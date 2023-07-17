@@ -1,8 +1,8 @@
 import  Navbar  from "../component/navbar"
 import { FaInstagram, FaFacebook,FaGoogle,FaTwitter,FaLinkedin,FaGithub } from 'react-icons/fa';
-import Footer  from "../component/footer";
-import FormControls from "../component/formControls"
-import Jumbotron from "../component/jumbotron"
+import Footer  from "../component/Footer";
+import FormControls from "../component/FormControls"
+import Jumbotron from "../component/Jumbotron"
 
 
 const Contactos = () => {

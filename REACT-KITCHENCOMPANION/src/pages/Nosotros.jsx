@@ -1,7 +1,7 @@
 
 import Navbar  from "../component/navbar";
 import Cards  from  "../component/Cards";
-import Jumbotron from '../component/jumbotron';
+import Jumbotron from '../component/Jumbotron';
 import BotonRefri from "../component/botonRefri";
 
 const Nosotros = () => {
