@@ -8,7 +8,7 @@ const FormControls = () => {
   const [error, setError] = useState(false);
 
   const onSubmit = (data) => {
-    fetch('http://localhost:5000/api/messages', {
+    fetch('', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
