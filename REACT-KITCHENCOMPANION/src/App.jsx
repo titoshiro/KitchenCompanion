@@ -10,10 +10,13 @@ import Login from './pages/Login';
 import Contactos from './pages/Contactos';
 import Enmirefri from './pages/Enmirefri';
 import Register from './pages/Register';
+import { UserProvider, TokenProvider } from './Context/UserContext';
 
 
 const App = () => {
   return (
+    <TokenProvider>
+    <UserProvider>
     <BrowserRouter>
       <AppProvider>
         <Routes>
@@ -33,6 +36,8 @@ const App = () => {
       </AppProvider>
       <ToastContainer />
     </BrowserRouter>
+    </UserProvider>
+    </TokenProvider>
   );
 };
 

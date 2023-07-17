@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../component/navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { UserContext, TokenContext } from '../Context/UserContext';
 
 const Login = () => {
   const navigate = useNavigate();
+ // const [token, setToken] = useContext(TokenContext);
+ // const [user, setUser] = useContext(UserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -23,11 +26,12 @@ const Login = () => {
     })
       .then((response) => {
         if (response.ok) {
-         
+          setUser({name: response.name});
+          setToken({token: response.token});
           navigate('/');
         } else {
-          LoginError(response.status);
-          console.error('Error:', response.status);
+          LoginError(response.status,response.message);
+          toast.warning('Error:'+ response.message);
         }
       })
       .catch((error) => {
@@ -35,14 +39,12 @@ const Login = () => {
       });
   };
 
-  const LoginError = (code) => {
+  const LoginError = (code,message) => {
     switch(code){
       case 401:
-        toast.warning('Credenciales invalidas');
+        toast.warning("Credenciales invalidas");
         break
     }
-
-
   }
 
   return (
