@@ -18,7 +18,7 @@ const Footer = ({
           <div className="row">
           <div className="col-lg-4 col-md-6 mb-4 mb-md-0 mx-auto text-center">
   <h5 className="text-uppercase">KITCHENCOMPANION</h5>
-  <p>Todo hecho con amor y amsiedad.</p>
+  <p>Todo hecho con amor.</p>
 </div>
           </div>
         </section>

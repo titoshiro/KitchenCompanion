@@ -1,0 +1,46 @@
+.register-container {
+    position: relative;
+  }
+  
+  .register-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .form-content-register {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #0f0e0e;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-content-register h1 {
+    margin-bottom: 1rem;
+  }
+  
+  .form-content-register form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Media queries para ajustar el diseño en pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .register-container {
+      display: block;
+    }
+    
+    .register-image {
+      width: 100%;
+      height: auto;
+    }
+  
+    .form-content-register {
+      position: static;
+      transform: none;
+    }
+  }
+  

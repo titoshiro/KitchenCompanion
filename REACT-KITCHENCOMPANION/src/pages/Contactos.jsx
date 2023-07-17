@@ -2,12 +2,14 @@ import  Navbar  from "../component/navbar"
 import { FaInstagram, FaFacebook,FaGoogle,FaTwitter,FaLinkedin,FaGithub } from 'react-icons/fa';
 import Footer  from "../component/footer";
 import FormControls from "../component/formControls"
-import Jumbotron from "../component/jumbotron"
+
+
 
 
 const Contactos = () => {
     return (
       <>
+      
         <Navbar
         empresa="KITCHENCOMPANION"
         home="HOME"
@@ -17,24 +19,16 @@ const Contactos = () => {
         enmirefri="EN MI REFRI"
         registrarse="REGISTRATE"
       />
-       <Jumbotron
-       titulo="¿Tienes una duda, pregunta o solo quieres decirnos algo?"
-       texto="Dejanos tu mensaje"
-       subtexto=""/>
-
-      <FormControls/>
        
-      <Footer
-      facebook={<FaFacebook/>}
-      twitter={<FaTwitter/>} 
-      google={<FaGoogle/>} 
-      instagram={<FaInstagram/>}
-      linkedin={<FaLinkedin/>} 
-      github={<FaGithub/>}
+        <FormControls/>
+        <Footer
+         facebook={<FaFacebook/>}
+         twitter={<FaTwitter/>} 
+         google={<FaGoogle/>} 
+         instagram={<FaInstagram/>}
+         linkedin={<FaLinkedin/>} 
+         github={<FaGithub/>}
       />
-      
-      
-      
       </>
       
     )
