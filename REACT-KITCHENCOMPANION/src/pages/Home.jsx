@@ -1,11 +1,7 @@
 
-import { Navbar } from "../component/navbar";
-import Carousel from "../component/Carousel"
+import Navbar  from "../component/navbar";
+import Carousel from "../component/carousel"
 import BotonRefri from "../component/botonRefri"
-import foto from "../imagenes/fotocarrucel.png"
-import video1 from "../imagenes/video1.1.mp4"
-import video2 from "../imagenes/video2.1.mp4"
-
 
 const Home = () => {
 
@@ -20,9 +16,9 @@ const Home = () => {
       enmirefri="EN MI REFRI" 
       registrarse="REGISTRATE"/>
       <Carousel
-      imagen1={foto}
-      video1={video1}
-      video2={video2}/>
+      imagen1="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371155/fotocarrucel.png"
+      video1="https://res.cloudinary.com/diiuqfujg/video/upload/v1689371127/videohome2.mp4"
+      video2="https://res.cloudinary.com/diiuqfujg/video/upload/v1689371148/videohome.mp4"/>
       <BotonRefri
       titulo="EN MI REFRI"
       href="/enmirefri"/>

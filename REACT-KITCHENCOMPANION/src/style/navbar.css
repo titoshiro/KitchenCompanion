@@ -72,3 +72,9 @@ ul li a {
   border-radius: 8px;
   
 }
+
+
+.dark-mode-toggle {
+background-color: #090909;
+color: aliceblue;
+}

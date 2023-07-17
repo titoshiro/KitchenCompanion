@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import "../style/navbar.css";
-import logo from "../imagenes/logoblanco1.png";
+
 
 const Navbar = ({
   home,
@@ -26,7 +26,7 @@ const Navbar = ({
       >
         <div className="container-fluid">
           <a href="/">
-            <img className="imagen" src={logo} alt="imagen" />
+            <img className="imagen" src="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371094/logoblanco1_lj7mp2.png" alt="imagen" />
           </a>
           <button
             className={`navbar-toggler  ${isMenuOpen ? "active" : ""}`}
@@ -97,4 +97,4 @@ Navbar.propTypes = {
   registrarse: PropTypes.string,
 };
 
-export { Navbar };
+export default Navbar ;
