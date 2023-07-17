@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import "../style/cardformulario.css"
+
 
 const Cardformulario = ({
   imagen,
@@ -31,6 +33,7 @@ const Cardformulario = ({
           {ingrediente !== undefined && (
             <div className="form-check">
              <input
+          
           type="checkbox"
           name={name}
           checked={checked}

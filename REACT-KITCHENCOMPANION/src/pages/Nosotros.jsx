@@ -1,9 +1,8 @@
 
 import Navbar  from "../component/navbar";
 import Cards  from  "../component/Cards";
-import Jumbotron from '../component/Jumbotron';
 import BotonRefri from "../component/botonRefri";
-
+import Carouselrefri from "../component/carouselrefri"
 const Nosotros = () => {
   return (
     <>
@@ -16,11 +15,13 @@ const Nosotros = () => {
         enmirefri="EN MI REFRI"
         registrarse="REGISTRATE"
       />
-      <Jumbotron
-        titulo="¿KITCHENCOMPANION?"
-        texto="Diseñada para ayudarte a organizar tus comidas de manera eficiente y creativa. Estas aplicacion te permite gestionar tu inventario de alimentos en el refrigerador, crear listas de compras,acceder a un recetario variado y cintar con una zona especial para manejar restricciones alimentarias."
-        subtexto="Con KitchenCompanion, simplificas la planificacion de comidas y descubriras nuevas recetas basadas en los ingredientes disponibles en tu hogar"
-      />
+      <div className="container-fluid">
+        <Carouselrefri
+         imagen1="https://res.cloudinary.com/diiuqfujg/image/upload/v1689569407/nosotros_fuz9kd.jpg" 
+         
+        />
+      </div>
+      <br/>
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6 col-lg-4">
