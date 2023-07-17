@@ -3,7 +3,9 @@ import cloudinary.uploader
 from flask import Blueprint, jsonify, request
 from models.image import Image
 
-api = Blueprint('image_api', __name__)
+
+api = Blueprint('images', __name__)
+
 
 @api.route('/images', methods=['GET'])
 def list_gallery_images():
@@ -25,7 +27,7 @@ def upload_image():
     else: 
         image = request.files['image']
         
-    response = cloudinary.uploader.upload(image, folder="gallery_project")
+    response = cloudinary.uploader.upload(image)
     
     if response:
         
@@ -38,7 +40,7 @@ def upload_image():
     
     return jsonify({ "image": imgGallery.serialize(), "message": "Image uploaded successfully"}), 201
 
-@api.route('/api/gallery/image/<int:id>/delete', methods=['DELETE'])
+@api.route('/api/images/gallery/image/<int:id>/delete', methods=['DELETE'])
 def delete_image(id):
     image = Image.query.get(id)
     

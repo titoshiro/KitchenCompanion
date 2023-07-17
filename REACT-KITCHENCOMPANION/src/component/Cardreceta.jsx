@@ -25,10 +25,10 @@ const Cardreceta = ({ foto, titulo, paso1, recetaRef}) => {
 };
 
 Cardreceta.propTypes = {
-  foto: PropTypes.string,
-  titulo: PropTypes.string,
-  paso1: PropTypes.string,
-  recetaRef:PropTypes.string,
+  foto: PropTypes.any,
+  titulo: PropTypes.any,
+  paso1: PropTypes.any,
+  recetaRef:PropTypes.any,
 };
 
 export default Cardreceta;

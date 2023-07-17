@@ -12,6 +12,7 @@ python-dotenv = "*"
 flask-jwt-extended = "*"
 psycopg2-binary = "*"
 cloudinary = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

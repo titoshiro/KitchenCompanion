@@ -1,19 +1,10 @@
 import { useState,useRef} from "react";
-import { Navbar } from "../component/navbar";
-import Cardformulario from "../component/Cardformulario";
-import Cardreceta from "../component/Cardreceta"
-import foto1 from "../imagenes/foto1.png"
-import foto2 from "../imagenes/foto2.png"
-import foto3 from "../imagenes/foto3.png"
+import  Navbar  from "../component/navbar";
+import Cardformulario from "../component/cardformulario";
+import Cardreceta from "../component/cardreceta"
 import Carouselrefri from "../component/carouselrefri";
-import granos from "../imagenes/granos.jpg"
-import carnes from "../imagenes/carne.jpg"
-import Vegetales from "../imagenes/vegetales.jpg"
-import lacteos from "../imagenes/lacteos.jpg"
 import BotonRefri from "../component/botonRefri";
-import platocarne from "../imagenes/platoCarne.jpg"
-import platovegano from "../imagenes/platoVegano.jpg"
-import falla from "../imagenes/falla.jpg"
+
 
 function Enmirefri() {
     const [ingredientes, setIngredientes] = useState({
@@ -43,7 +34,7 @@ function Enmirefri() {
       switch (true) {
         case ingredientes.carne && ingredientes.tomate && !ingredientes.arroz && ingredientes.champiñones && !ingredientes.tofu && ingredientes.spaguetti && !ingredientes.pollo && !ingredientes.crema && ingredientes.queso:
           nuevaReceta = 'Prepara una deliciosa combinación de carne con tomate, champiñones y queso.';
-          nuevaImagen = platocarne;
+          nuevaImagen = 'https://res.cloudinary.com/diiuqfujg/image/upload/v1689371095/platoCarne.jpg';
           nuevosPasos = '1. En una sartén grande, cocina la carne hasta que esté dorada. Resérvala.\n' +
                         '2. En la misma sartén, agrega los champiñones cortados en láminas y cocina hasta que estén tiernos.\n' +
                         '3. Añade los tomates cortados en trozos y cocina hasta que estén suaves.\n' +
@@ -54,7 +45,7 @@ function Enmirefri() {
               
         case !ingredientes.carne && !ingredientes.arroz && ingredientes.tomate && ingredientes.champiñones && ingredientes.tofu && ingredientes.spaguetti && !ingredientes.pollo && !ingredientes.crema && !ingredientes.queso:
           nuevaReceta = 'Prepara una deliciosa pasta de espagueti con tofu, champiñones y salsa de tomate.';
-          nuevaImagen = platovegano;
+          nuevaImagen = 'https://res.cloudinary.com/diiuqfujg/image/upload/v1689371096/platoVegano.jpg';
           nuevosPasos = '1. Cocina el espagueti según las instrucciones del paquete.\n' +
                         '2. Mientras tanto, en una sartén grande, calienta un poco de aceite de oliva.\n' +
                         '3. Añade los champiñones cortados en rodajas a la sartén y cocínalos hasta que estén dorados y tiernos.\n' +
@@ -70,7 +61,7 @@ function Enmirefri() {
   
         default:
           nuevaReceta = "Debes elegir un ingrediente";
-          nuevaImagen = falla;
+          nuevaImagen = 'https://res.cloudinary.com/diiuqfujg/image/upload/v1689371094/falla.jpg';
           nuevosPasos = "Falta poco para tener tu receta";
           break;
       }
@@ -117,14 +108,17 @@ function Enmirefri() {
     return (
       <>
         <Navbar empresa="KITCHENCOMPANION" home="HOME" nosotros="NOSOTROS" contacto="CONTACTOS" login="INICIAR SESIÓN" enmirefri="EN MI REFRI" registrarse="REGISTRATE" />
-        <Carouselrefri imagen1={foto1} imagen2={foto2} imagen3={foto3} />
+        <Carouselrefri 
+        imagen1="https://res.cloudinary.com/diiuqfujg/image/upload/v1689383019/foto1-min_u59w7g.png" 
+        imagen2="https://res.cloudinary.com/diiuqfujg/image/upload/v1689383063/foto2-min_qhptt1.png"
+        imagen3="https://res.cloudinary.com/diiuqfujg/image/upload/v1689383058/foto3-min_tjnpjg.png" />
         <br />
         <h1 ref={inicioRef} className="text-center">ELIGE TUS INGREDIENTES</h1>
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6 col-lg-3 mx-auto">
               <Cardformulario
-                imagen={carnes}
+                imagen="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371093/carne.jpg"
                 titulo="Proteinas"
                 ingrediente="Carne"
                 name="carne"
@@ -138,7 +132,7 @@ function Enmirefri() {
             </div>
             <div className="col-12 col-md-6 col-lg-3 mx-auto">
               <Cardformulario
-                imagen={granos}
+                imagen="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371094/granos.jpg"
                 titulo="Granos y Pastas"
                 ingrediente="Arroz"
                 name="arroz"
@@ -156,7 +150,7 @@ function Enmirefri() {
             </div>
             <div className="col-12 col-md-6 col-lg-3 mx-auto">
               <Cardformulario
-                imagen={Vegetales}
+                imagen="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371098/vegetales.jpg"
                 titulo="Vegetales"
                 ingrediente="Tomate"
                 name="tomate"
@@ -170,7 +164,7 @@ function Enmirefri() {
             </div>
             <div className="col-12 col-md-6 col-lg-3 mx-auto">
               <Cardformulario
-                imagen={lacteos}
+                imagen="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371094/lacteos.jpg"
                 titulo="Lacteos"
                 ingrediente="Queso"
                 name="queso"
@@ -204,7 +198,7 @@ function Enmirefri() {
               recetaRef={recetaRef}
             />
           
-          <BotonRefri titulo="REINICIAR" onclick={reiniciarTodo} />
+          <BotonRefri titulo="NUEVA RECETA" onclick={reiniciarTodo} />
         </>
       )}
     </>
