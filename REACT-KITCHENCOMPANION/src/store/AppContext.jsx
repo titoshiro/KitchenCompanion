@@ -20,7 +20,7 @@ const AppProvider = ({ children }) => {
     // Aquí puedes agregar la lógica de autenticación
     // por ejemplo, realizar una solicitud HTTP para verificar las credenciales
     // y navegar a la página correspondiente según el resultado
-    navigate('/dashboard'); // Ejemplo de navegación después de iniciar sesión
+    navigate('/'); // Ejemplo de navegación después de iniciar sesión
   };
 
   const contextValue = {

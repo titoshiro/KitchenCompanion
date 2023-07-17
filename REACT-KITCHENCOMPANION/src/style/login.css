@@ -1,0 +1,39 @@
+.login-container {
+  position: relative;
+}
+
+.login-container img {
+  width: 100%;
+  height: auto;
+}
+
+.login-form-content {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #0f0e0e;
+}
+
+.login-form-content h1 {
+  margin-bottom: 1rem;
+}
+
+.login-form-content form {
+  max-width: 400px;
+  margin: 0 auto;
+
+}
+
+/* Media queries para ajustar el diseño en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .login-container {
+    display: block;
+  }
+  
+  .login-form-content {
+    position: static;
+    transform: none;
+  }
+}

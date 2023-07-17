@@ -1,0 +1,17 @@
+.card-body .form-check input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+    
+  }
+  
+  .card-body .form-check label.form-check-label {
+    font-size: 18px;
+  }
+  
+  @media (max-width: 576px) {
+    .card-body .form-check input[type="checkbox"],
+    .card-body .form-check label.form-check-label {
+      font-size: 18px;
+    }
+  }

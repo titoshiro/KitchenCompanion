@@ -1,0 +1,42 @@
+.img-container {
+    position: relative;
+  }
+  
+  .imgform {
+    width: 100%;
+    height: auto;
+  }
+  
+  .form-content {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #0f0e0e;
+    display: flex;
+    flex-direction: column; /* Cambiado */
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .form-content form {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Media queries para ajustar el diseño en pantallas más pequeñas */
+  @media (max-width: 992px) {
+    .form-content {
+      position: static;
+      transform: none;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .form-content form {
+      max-width: 100%;
+    }
+  }
+  
