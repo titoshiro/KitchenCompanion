@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token, jwt_required, unset_jwt_cookies
 from models.user import User
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -24,7 +24,6 @@ def login():
         "access_token": access_token,
         "user": userFound.serialize()
     }
-
     return jsonify(data), 200
 
 @api.route('/register', methods=['POST'])
