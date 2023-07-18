@@ -4,6 +4,7 @@ import Navbar from '../component/navbar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AppContext } from '../store/AppContext';
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -85,7 +86,17 @@ const Login = () => {
                       id="exampleInputPassword1"
                     />
                   </div>
-                  <button type="submit" className="btn btn-warning">Entrar</button>
+                  <button type="submit" className="btn btn-warning m-3">Entrar</button>
+              <section>
+          
+            <span className="m-4">Si aun no estas registrado haz clic</span>
+            <button type="button" className="btn btn-outline-primary btn-rounded m-3">
+              <Link to="/register" className="btn btn-outline-black">
+                Aqui!
+              </Link>
+            </button>
+          
+        </section>
                 </form>
                 <ToastContainer />
               </div>
