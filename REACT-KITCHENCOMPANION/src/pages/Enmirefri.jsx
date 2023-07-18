@@ -4,9 +4,12 @@ import Cardformulario from "../component/cardformulario";
 import Cardreceta from "../component/cardreceta"
 import Carouselrefri from "../component/carouselrefri";
 import BotonRefri from "../component/botonRefri";
+import { useContext } from 'react';
+import { AppContext } from '../store/AppContext';
 
 
 function Enmirefri() {
+  const { userEmail } = useContext(AppContext);
     const [ingredientes, setIngredientes] = useState({
       tomate: false,
       carne: false,
@@ -107,7 +110,16 @@ function Enmirefri() {
   
     return (
       <>
-        <Navbar empresa="KITCHENCOMPANION" home="HOME" nosotros="NOSOTROS" contacto="CONTACTOS" login="INICIAR SESIÓN" enmirefri="EN MI REFRI" registrarse="REGISTRATE" />
+         <Navbar
+        empresa="KITCHENCOMPANION"
+        home="HOME"
+        nosotros="NOSOTROS"
+        contacto="CONTACTOS"
+        login={userEmail ? '' : 'INICIAR SESIÓN'}
+        enmirefri="EN MI REFRI"
+        registrarse={userEmail ? '' : 'REGISTRATE'}
+        userEmail={userEmail ? userEmail : ''}
+      />
         <Carouselrefri 
         imagen1="https://res.cloudinary.com/diiuqfujg/image/upload/v1689383019/foto1-min_u59w7g.png" 
         imagen2="https://res.cloudinary.com/diiuqfujg/image/upload/v1689383063/foto2-min_qhptt1.png"

@@ -74,7 +74,12 @@ ul li a {
 }
 
 
-.dark-mode-toggle {
-background-color: #090909;
-color: aliceblue;
+
+
+.nombrelogi{
+
+  margin-top: 20px;
+  background-color: #f8f68c;
+  border-radius: 8px;
+
 }

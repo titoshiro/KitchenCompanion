@@ -8,17 +8,12 @@ import Contactos from './pages/Contactos';
 import Enmirefri from './pages/Enmirefri';
 import Register from './pages/Register';
 
-
-
-
 const App = () => {
-
-
   return (
     <BrowserRouter>
       <AppProvider>
         <Routes>
-            <Route path="/">
+          <Route path="/">
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="nosotros" element={<Nosotros />} />
