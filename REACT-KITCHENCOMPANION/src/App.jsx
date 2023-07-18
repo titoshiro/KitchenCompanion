@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AppProvider } from './store/AppContext';
 import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home';
@@ -10,8 +10,8 @@ import Register from './pages/Register';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AppProvider>
+    <AppProvider>
+      <Router>
         <Routes>
           <Route path="/">
             <Route path="login" element={<Login />} />
@@ -22,9 +22,9 @@ const App = () => {
             <Route index element={<Home />} />
           </Route>
         </Routes>
-      </AppProvider>
+      </Router>
       <ToastContainer />
-    </BrowserRouter>
+    </AppProvider>
   );
 };
 

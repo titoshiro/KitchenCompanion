@@ -1,4 +1,3 @@
-
 import Navbar  from "../component/navbar";
 import Cards  from  "../component/Cards";
 import BotonRefri from "../component/botonRefri";

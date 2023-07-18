@@ -1,4 +1,4 @@
-import { useState,useRef} from "react";
+import { useState,useRef,useEffect} from "react";
 import  Navbar  from "../component/navbar";
 import Cardformulario from "../component/cardformulario";
 import Cardreceta from "../component/cardreceta"
@@ -9,7 +9,15 @@ import { AppContext } from '../store/AppContext';
 
 
 function Enmirefri() {
-  const { userEmail } = useContext(AppContext);
+  const { userEmail, setUserEmail } = useContext(AppContext);
+
+  useEffect(() => {
+    const storedEmail = localStorage.getItem('userEmail');
+    if (storedEmail) {
+      setUserEmail(storedEmail);
+    }
+  }, [setUserEmail]);
+  
     const [ingredientes, setIngredientes] = useState({
       tomate: false,
       carne: false,
