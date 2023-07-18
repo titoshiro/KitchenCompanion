@@ -1,30 +1,13 @@
-import { createContext, useEffect, useState } from "react";
-import getState from "./flux";
+import { createContext, useState } from 'react';
 
-export const AppContext = createContext(null);
+export const AppContext = createContext();
 
-const injectContext = (Component) => {
-    const StoreWrapper = (props) => {
-        const [state, setState] = useState(getState({
-            getStore: () => state.store,
-            getActions: () => state.actions,
-            setStore: (updateStore) => setState({
-                store: Object.assign(state.store, updateStore), // { a: 8, b: 6}
-                actions: { ...state.actions }
-            })
-        }));
+export const AppProvider = ({ children }) => {
+  const [userEmail, setUserEmail] = useState('');
 
-        useEffect(() => {
-        }, [])
-
-        return (
-            <AppContext.Provider value={state}>
-                <Component {...props} />
-            </AppContext.Provider>
-        )
-    }
-
-    return StoreWrapper;
-}
-
-export default injectContext;
+  return (
+    <AppContext.Provider value={{ userEmail, setUserEmail }}>
+      {children}
+    </AppContext.Provider>
+  );
+};

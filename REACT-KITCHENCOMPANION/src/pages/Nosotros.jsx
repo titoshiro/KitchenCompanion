@@ -1,19 +1,25 @@
-
 import Navbar  from "../component/navbar";
 import Cards  from  "../component/Cards";
 import BotonRefri from "../component/botonRefri";
 import Carouselrefri from "../component/carouselrefri"
+import { useContext } from 'react';
+import { AppContext } from '../store/AppContext';
+
+
 const Nosotros = () => {
+  const { userEmail } = useContext(AppContext);
+
   return (
     <>
-      <Navbar
+     <Navbar
         empresa="KITCHENCOMPANION"
         home="HOME"
         nosotros="NOSOTROS"
         contacto="CONTACTOS"
-        login="INICIAR SESIÓN"
+        login={userEmail ? '' : 'INICIAR SESIÓN'}
         enmirefri="EN MI REFRI"
-        registrarse="REGISTRATE"
+        registrarse={userEmail ? '' : 'REGISTRATE'}
+        userEmail={userEmail ? userEmail : ''}
       />
       <div className="container-fluid">
         <Carouselrefri

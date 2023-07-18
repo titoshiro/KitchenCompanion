@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
-import "../style/navbar.css";
-
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AppContext } from "../store/AppContext";
+import "../style/navbar.css"
 
 const Navbar = ({
   home,
@@ -10,76 +11,89 @@ const Navbar = ({
   login,
   enmirefri,
   registrarse,
+  userEmail,
 }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { setUserEmail } = useContext(AppContext);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const handleLogout = () => {
+    setUserEmail("");
   };
 
   return (
     <div>
-      <nav
-        className={`navbar navbar-expand-lg fixed-top ${
-          isMenuOpen ? "active" : ""
-        }`}
-      >
+      <nav className="navbar navbar-expand-lg fixed-top">
         <div className="container-fluid">
           <a href="/">
-            <img className="imagen" src="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371094/logoblanco1_lj7mp2.png" alt="imagen" />
+            <img
+              className="imagen"
+              src="https://res.cloudinary.com/diiuqfujg/image/upload/v1689371094/logoblanco1_lj7mp2.png"
+              alt="imagen"
+            />
           </a>
           <button
-            className={`navbar-toggler  ${isMenuOpen ? "active" : ""}`}
+            className="navbar-toggler"
             type="button"
-            onClick={toggleMenu}
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon "></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div
-            className={`collapse navbar-collapse text-black justify-content-end  ${
-              isMenuOpen ? "show" : ""
-            }`}
-          >
-            <div className="nav-item-container  ">
-              {" "}
-              {/* Agregado: Contenedor del menú desplegable */}
-              <ul className="navbar-nav ">
-                <li className="nav-item ">
-                  <a
-                    className="nav-link active text-black"
-                    aria-current="page"
-                    href="/"
-                  >
-                    {home}
-                  </a>
-                </li>
-                <li className="nav-item ">
-                  <a className="nav-link text-black" href="/Enmirefri">
-                    {enmirefri}
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link text-black" href="/Nosotros">
-                    {nosotros}
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link text-black" href="/Contactos">
-                    {contacto}
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link text-black" href="/login">
-                    {login}
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link text-black" href="/register">
-                    {registrarse}
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to="/">
+                  {home}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Enmirefri">
+                  {enmirefri}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Nosotros">
+                  {nosotros}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Contactos">
+                  {contacto}
+                </Link>
+              </li>
+              
+              {userEmail ? (
+                <>
+                  <li className="nav-item">
+                    <span className="nombrelogi nav-link">{userEmail}</span>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className="nav-link text-black"
+                      onClick={handleLogout}
+                      to="/"
+                    >
+                      Logout
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/login">
+                      {login}
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/register">
+                      {registrarse}
+                    </Link>
+                  </li>
+                </>
+              )}
+            </ul>
           </div>
         </div>
       </nav>
@@ -95,6 +109,7 @@ Navbar.propTypes = {
   login: PropTypes.string,
   enmirefri: PropTypes.string,
   registrarse: PropTypes.string,
+  userEmail: PropTypes.string,
 };
 
-export default Navbar ;
+export default Navbar;

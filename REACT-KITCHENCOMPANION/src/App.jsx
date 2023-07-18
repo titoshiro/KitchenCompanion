@@ -1,6 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import injectContext from './store/AppContext';
-// import {AppProvider} from './store/AppContext';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AppProvider } from './store/AppContext';
 import { ToastContainer } from 'react-toastify';
 import Home from './pages/Home';
 import Nosotros from './pages/Nosotros';
@@ -10,12 +9,11 @@ import Enmirefri from './pages/Enmirefri';
 import Register from './pages/Register';
 
 const App = () => {
-
-
   return (
-    <BrowserRouter>
+    <AppProvider>
+      <Router>
         <Routes>
-            <Route path="/">
+          <Route path="/">
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="nosotros" element={<Nosotros />} />
@@ -24,9 +22,10 @@ const App = () => {
             <Route index element={<Home />} />
           </Route>
         </Routes>
+      </Router>
       <ToastContainer />
-    </BrowserRouter>
+    </AppProvider>
   );
 };
 
-export default injectContext(App);
+export default App;
