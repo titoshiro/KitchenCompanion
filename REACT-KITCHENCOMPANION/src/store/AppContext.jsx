@@ -15,12 +15,11 @@ const injectContext = (Component) => {
         }));
 
         useEffect(() => {
-            state.actions.saludo();
         }, [])
 
         return (
             <AppContext.Provider value={state}>
-                <Component />
+                <Component {...props} />
             </AppContext.Provider>
         )
     }

@@ -1,7 +1,7 @@
 import  Navbar  from "../component/navbar"
 import { FaInstagram, FaFacebook,FaGoogle,FaTwitter,FaLinkedin,FaGithub } from 'react-icons/fa';
-import Footer  from "../component/footer";
-import FormControls from "../component/formControls"
+import Footer  from "../component/Footer";
+import FormControls from "../component/FormControls"
 
 
 

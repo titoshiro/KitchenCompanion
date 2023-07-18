@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../component/navbar';
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,13 +7,10 @@ import { AppContext } from '../store/AppContext';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [token, setToken] = useContext(TokenContext);
-  const [user, setUser] = useContext(UserContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { store: { email, password }, actions: { setEmail, setUsername, setPassword, setSessionToken } } = useContext(AppContext);
 
   const handleLogin = (e) => {
-    e.preventDefault();   
+    e.preventDefault();
     fetch('http://localhost:5000/api/login', {
       method: 'POST',
       headers: {
@@ -23,21 +20,22 @@ const Login = () => {
     })
       .then((response) => {
         if (response.ok) {
-          setUser({name: response.name});
-          setToken({token: response.token});
           navigate('/');
         } else {
-          LoginError(response.status,response.message);
-          toast.warning('Error:'+ response.message);
+          LoginError(response.status, response.message);
         }
+      })
+      .then((data) => {
+        console.log(data);
+        setSessionToken(data.access_token);
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   };
 
-  const LoginError = (code,message) => {
-    switch(code){
+  const LoginError = (code, message) => {
+    switch (code) {
       case 401:
         toast.warning("Credenciales invalidas");
         break
@@ -59,37 +57,39 @@ const Login = () => {
         <div className="container-fluid login-container ">
           <div className="row">
             <div className="col-12">
-          <img src="https://res.cloudinary.com/diiuqfujg/image/upload/v1689538059/iniciarsession.png_vil7qh.jpg" alt="" />
-          <div className="login-form-content">
-            <h1>Login</h1>
-            <form onSubmit={handleLogin}>
-              <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
-                <input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                />
-                <div id="emailHelp" className="form-text"></div>
+              <img src="https://res.cloudinary.com/diiuqfujg/image/upload/v1689538059/iniciarsession.png_vil7qh.jpg" alt="" />
+              <div className="login-form-content">
+                <h1>Login</h1>
+                <form onSubmit={handleLogin}>
+                  <div className="mb-3">
+                    <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
+                    <input
+                      name='email'
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      type="email"
+                      className="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                    />
+                    <div id="emailHelp" className="form-text"></div>
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                    <input
+                      name='password'
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      type="password"
+                      className="form-control"
+                      id="exampleInputPassword1"
+                    />
+                  </div>
+                  <button type="submit" className="btn btn-warning">Entrar</button>
+                </form>
+                <ToastContainer />
               </div>
-              <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password"
-                  className="form-control"
-                  id="exampleInputPassword1"
-                />
-              </div>
-              <button type="submit" className="btn btn-warning">Entrar</button>
-            </form>
-            <ToastContainer />
-          </div>
-          </div>
+            </div>
           </div>
         </div>
       </div>
